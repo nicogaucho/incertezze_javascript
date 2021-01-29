@@ -76,3 +76,13 @@ npm install node-fetch
 4. crea un nuevo array solo con los animales de tamaño pequeño
 5.crea un nuevo array solo con las palabras que llevan mas de 6 letras 
 */
+
+
+/* ejercicio reduce:
+
+1.
+
+
+
+*/
+

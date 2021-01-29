@@ -13,9 +13,6 @@ console.log(comidaCocinada);
 
 
 
-
-
-
 let numbers = [1,2,3,4,5];
 
 let doble = numbers.map((number, index, array)=> {
@@ -24,8 +21,6 @@ let doble = numbers.map((number, index, array)=> {
 });
 
 console.log(doble);
-
-
 
 
 
