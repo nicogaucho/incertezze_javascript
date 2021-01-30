@@ -80,8 +80,15 @@ npm install node-fetch
 
 /* ejercicio reduce:
 
-1.
-
+1.crea un numero que sea la suma de todos los numeros en el array
+2.crea un objecto que lleva por llave el fruto y por valor los numeros de veces que se repite el fruto en el array
+3.craa un numero que sea la media entre todos los numeros en el array 
+HINT: necesitas controlar el index para determinar si quieres devolver la suma o la media 
+4.crea un nuevo array con la primas 3 letras de cada dia
+5.crea un nuevo array solo con las palabras mas larga de 6 letras 
+6.crea un objecto donde las llaves son los id y los valores son las personas
+7.crea un objecto donde por llave el tamaño y por valores un array con los animales del tamaño  
+ 
 
 
 */
