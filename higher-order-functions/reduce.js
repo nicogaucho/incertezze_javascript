@@ -15,7 +15,7 @@ console.log(sum);
 const frutas = ['platano', 'manzana', 'uva', 'naranja', 'melacoton', 'platano', 'fresa', 'melon', 'fresa', 'fresa', 'naraja', 'manzana','platano', 'uva', 'platano', 'fresa', 'melon'];
 
 const selecion = frutas.reduce((selection, fruta) =>{
-  // empezamos de object selecion vacio
+  // empezamos de object selection vacio
   // verifica si cada fruto esta en el objecto selection como su propriedad
     // if si hay
     if (fruta in selection) {
@@ -23,8 +23,7 @@ const selecion = frutas.reduce((selection, fruta) =>{
        selection[fruta] ++; // access dynamic property
     } else {
       // añade la propriedad a selecion con valor 1 
-      // add property dynamically to an object
-      selection[fruta] = 1;
+      selection[fruta] = 1; // add property dynamically to an object
     }
     return selection;
 },{});
@@ -36,6 +35,16 @@ console.log(selecion);
 
 const precios = [29.76, 41.85, 46.5];
 
+const mediaPrecios = precios.reduce((media, precio, index, array) =>{ return media + precio / array.length;
+},0);
+
+console.log(mediaPrecios);
+
+const suma = precios.reduce((sum, precio) => {
+  return sum + precio; 
+},0);
+
+console.log(suma);
 
 
 
