@@ -60,13 +60,32 @@ const dias = [
   'domingo'
 ];
 
+const inicioDias = dias.reduce((diaCorto, dia)  =>{
+  // incapsular la primera 3 letras en variable
+  const primeraTresLetras = dia.substring(0, 3);
+    // push esta variable en el array
+      diaCorto.push(primeraTresLetras);
+     // return del array
+      return diaCorto;
+},[]);
+
+console.log(inicioDias);
+
+
 
 
 
 
 const palabras = ['spray', 'limite', 'elite', 'esuberante', 'eliminacion', 'presentacion'];
 
+const largaPalabra = palabras.reduce((larga, palabra) =>{
+  if ( palabra.length > 6 ) {
+    larga.push(palabra); // Array.push(el)
+  }
+  return larga; // Array iterator
+},[]);
 
+console.log(largaPalabra);
 
 
 
