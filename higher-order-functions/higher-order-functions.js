@@ -65,7 +65,17 @@ npm install node-fetch
 1.toma un pollo y un pop en un array y crea otro array que devuelven la comida cocinda 
 2.crea un nuevo array de un objecto con la propriedad value y index 
 3.dato un array, eleva a potencia los numeros dentro del array, y devuelve el resultado como cadena
+4.Crear un nuevo array con los números duplicados
+5.crear un nuevo array con las primeras 3 letras de cada día
+6.Crear un nuevo array con la cadena de nombre completo de cada persona
+7.Crear un nuevo array con sólo los nombres de los animales
+8.crear una nuevo array de objetos con el valor de las propiedades y el índice
+9.Crear una nuevo array con cada valor multiplicado por el siguiente valor
+El último valor debe multiplicarse por el primer valor
+p. ej. [2*5, 5*10, 10*2] == [10, 50, 20]
+
 */
+
 
 
 /* ejercicio filter: 

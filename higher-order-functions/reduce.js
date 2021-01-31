@@ -33,6 +33,7 @@ console.log(selecion);
 
 
 
+
 const precios = [29.76, 41.85, 46.5];
 
 const mediaPrecios = precios.reduce((media, precio, index, array) =>{ return media + precio / array.length;
@@ -89,7 +90,9 @@ console.log(largaPalabra);
 
 
 
-const presonas = [{
+
+
+const personas = [{
   id: 1,
   nombre: 'nico',
   apellido: 'G.'
@@ -107,19 +110,41 @@ const presonas = [{
   apellido: 'nolose'
 }];
 
+const personaId = personas.reduce((Id, persona) =>{
+  // añadir propriedad en array Id donde llave es el id de la persona y la llave es la persona
+    Id[persona.id] = persona; // Object[key] = value;
+    return Id;
+},{});
+
+console.log(personaId);
+
+
 
 
 
 const animales = [{
-  name: 'gato',
-  size: 'pequeño'
+  nombre: 'gato',
+  tamano: 'pequeno'
 }, {
-  name: 'peroo',
-  size: 'pequeño'
+  nombre: 'peroo',
+  tamano: 'pequeno'
 }, {
-  name: 'leon',
-  size: 'mediano'
+  nombre: 'leon',
+  tamano: 'mediano'
 }, {
-  name: 'elefante',
-  size: 'largo'
+  nombre: 'elefante',
+  tamano: 'largo'
 }];
+
+const losTamanos = animales.reduce((tamano, animal) =>{
+  // verifica que el array lleva una propriedad tamano
+    if (!tamano.hasOwnProperty(animal.tamano)) {
+          // si no añade una propriedad tamano que sea un array vacio
+        tamano[animal.tamano] = [];
+    } 
+    // push animal en el array del tamano corrispondiente 
+    tamano[animal.tamano].push(animal);
+    return tamano;
+},{});
+
+console.log(losTamanos);
