@@ -9,10 +9,10 @@ fs.promises.readFile('index.js', 'utf-8')
     console.log(data);
   })
   .catch((error) => {
-    console.console.error(error);
+    console.error(error);
   }); 
 
-// se tu ves file con node.js index.js significa que hemos prodicido una promises y podemos usar async/await
+// se tu ves file con node.js index.js significa que hemos producido una promises y podemos usar async/await
 
 // 1 necesitamos una async function 
 

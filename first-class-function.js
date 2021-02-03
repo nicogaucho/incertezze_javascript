@@ -12,15 +12,15 @@ meDasLaFecha();
 
 */
 
-/* 
-crea una variable llamada hola e pone dentro una funcion que imprime hola todo el mundo!
+
+// crea una variable llamada hola e pone dentro una funcion que imprime hola todo el mundo!
 
 
 const Hola = () => console.log('hola todo el mundo!');
 
 Hola();
 
-*/
+
 
 
 
