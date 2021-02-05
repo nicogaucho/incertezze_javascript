@@ -7,20 +7,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>Dom manipulation</title>
+
+    <style>
+
+      #sideBar {
+        position: fixed;
+        top: 0px;
+        left: -350px;
+        z-index: 1;
+        width: 350px;
+        height: 100vh;
+        background-color: #F8F9FA;
+        transition: 0.5s ease-in-out;
+      }
+
+      .activeSideBar {
+        left: 0px !important;
+      }
+
+    </style>
   </head>
   <body>
-    
-    
-    <div class="container my-5 py-5">
-        <div class="row">
-            <div class="col-12">
-                <h2>Javascript DOM</h2>
-            </div>
+
+
+    <div id="sideBar">
+      <div class="container my-5 py-5">
+          <div class="row">
+              <div class="col-12">
+                  <ul class="list-unstyled text-center">
+                    <li class="mb-4">
+                      <a class="text-decoration-none text-reset text-white text-uppercase" href="">clic al enlace</a>
+                    </li>
+                    <li class="mb-4">
+                      <a class="text-decoration-none text-reset text-white text-uppercase" href="">clic al enlace</a>
+                    </li>
+                    <li class="mb-4">
+                      <a class="text-decoration-none text-reset text-white text-uppercase" href="">clic al enlace</a>
+                    </li>
+                    <li class="mb-4">
+                      <a class="text-decoration-none text-reset text-white text-uppercase" href="">clic al enlace</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
         </div>
     </div>
-
-
     
+      <nav class="navbar navbar-light bg-light py-3 fixed-top">
+        <div  class="container">
+          
+            <a id="toggleMenu" class="navbar-brand" href="#">
+            LOGO
+          </a>
+    
+         
+          <i id="user" class="fas fa-user-circle fa-2x"></i>
+        </div>
+      </nav>
+    
+      
+      <div class="container my-5 py-5">
+          <div class="row">
+              <div class="col-12">
+                  <h2>Javascript DOM</h2>
+              </div>
+          </div>
+        </div> 
+
+
+   
     <div class="container my-5 py-5">
         <div class="row">
             <div class="col-12 card shadow-sm p-4 mt-3">
@@ -51,9 +106,13 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> 
+
+    <div style="margin-top: 2000px;"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4885c16ff9.js" crossorigin="anonymous"></script>
+
     <script>  
       console.log(document.head);
       
@@ -70,7 +129,24 @@
       let info = document.querySelectorAll('button').forEach(el => {
         el.style.backgroundColor = '#33ff3c';
       });
-      
+    
+      document.addEventListener('scroll', () => {
+        let scrolled = window.pageYOffset;
+        document.querySelector('#user').style.transform = `rotateZ(${scrolled}deg)`;
+      });
+
+
+
+      // SideBar 
+
+      let sideMenu = document.querySelector('#toggleMenu')
+      sideMenu.addEventListener('click', () => {
+        let side = document.querySelector('#sideBar')
+        side.classList.toggle('activeSideBar')
+        console.log(side);
+      });
+
+
     </script>
   </body>
 </html>
