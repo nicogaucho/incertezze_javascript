@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Dom manipulation</title>
+  </head>
+  <body>
+    
+    
+    
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-6">
+              <form>
+                <div class="mb-3">
+                  <label for="passValidation" class="form-label">Password</label>
+                  <input id="passValidation" type="text" class="form-control">
+                  <p id="passMessage">&nbsp</p>  
+                </div>
+                <div class="mb-3">
+                  <label for="confirmPassValidation" class="form-label">Password</label>
+                  <input id="confirmPassValidation" type="text" class="form-control">
+                  <p id="passConfirmMessage">&nbsp</p>
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary d-none">Submit</button>
+              </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+    
+    <script>  
+
+      /* 
+      pseudo code
+      1. seleccione los elementos en el dom
+        2. crear el evento de entrada para interceptar el valor en el campo de entrada 
+          3. interceptado el valor tengo que hacer una función de control
+          4. aplico la utilidad de validación sobre el valor de la entrada 
+      */
+
+
+      // 1.seleccione los elementos en el dom
+      let pass = document.querySelector('#passValidation');
+      let confirmPass = document.querySelector('#confirmPassValidation');
+      
+      let passMessage = document.querySelector('#passMessage');
+      let passConfirmMessage = document.querySelector('#passConfirmMessage');
+
+      let btn = document.querySelector('#submit');
+
+      //2. crear el evento de entrada para interceptar el valor en el campo de entrada 
+      pass.addEventListener('keydown', () => {
+        let valor = pass.value;
+
+        //4.aplico la utilidad de validación sobre el valor de la entrada
+        if (checkPassValidation(valor)) {
+          // añado clases al control positivo
+          passMessage.classList.remove('text-danger')
+          passMessage.classList.add('text-success')
+          passMessage.innerHTML = "Good Pass! 😳";      
+        } else {
+          passMessage.classList.remove('text-success')
+          passMessage.classList.add('text-danger')
+          passMessage.innerHTML = "Can do better! 😅";
+        }
+        //console.log(checkPassValidation(valor));
+      });
+
+
+      confirmPass.addEventListener('keydown', () => {
+        // control si los dos valores son iguales 
+        if (confirmPass.value === pass.value) {
+          passConfirmMessage.classList.remove('text-danger')
+          passConfirmMessage.classList.add('text-success')
+          passConfirmMessage.innerHTML = "Pass confirmed 🤓";
+          btn.classList.remove('d-none');
+        } else {
+          passConfirmMessage.classList.remove('text-success')
+          passConfirmMessage.classList.add('text-danger')
+          passConfirmMessage.innerHTML = "Came on man, try again! 😂";
+        }
+      });
+
+
+      // 3. interceptado el valor tengo que hacer una función de control
+      function checkPassValidation(str) {
+        // control que contenga un mínimo de 6 caracteres
+          // Comprobación de que no hay caracteres especiales
+          let caratteri = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
+          if (str.length > 6 && !str.match(caratteri)) {
+            return true;
+          } else {
+            return false;
+          }
+      };
+
+  
+    </script>
+  </body>
+</html>

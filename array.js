@@ -115,3 +115,16 @@ console.log(temp);
 let final = Array.from(new Set(matrix)).sort((a,b) => b - a);
 
 console.log(final); 
+
+
+
+
+// encuentra los elementos iguales en los dos array
+
+let age = [20, 22, 40, 39, 22, 15, 52, 12, 13, 14];
+
+let myage = [12, 21, 12, 13, 15, 12, 12, 12, 40, 31, 41, 40, 15, 13];
+
+let reality = [...new Set(myage)].filter(el => age.includes(el));
+
+console.log(reality);
