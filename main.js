@@ -171,3 +171,31 @@ age > 18 && auto ? console.log('you can drive') : console.log('you cannot drive!
 */
 
  
+/* methods of string  */
+
+let string = "Hey Tu, como te llamas, hey estoy hablando contigo!!";
+let replace = string.replace("contigo", "el");
+console.log(replace);
+
+
+/*  logical operators improvement  */
+
+//si a es truty return a, si a es falsy return b 
+if ( !a ) {
+  a = b;
+} 
+
+//mismo resultado 
+a ||= b;
+
+
+// or 
+// si a es truty return b, si a es falsy return a 
+if (a) {
+  a = b; 
+} 
+
+// mismo resultado
+
+a &&= b;
+
