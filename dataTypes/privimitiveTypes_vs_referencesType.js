@@ -8,9 +8,9 @@ function add(a, b) {
 }
 
 let firstNumber = 10;
-console.log(firstNumber); //10
-console.log(add(firstNumber, firstNumber)); //30
-console.log(firstNumber); //10
+console.log(firstNumber);                     //10
+console.log(add(firstNumber, firstNumber));   //30
+console.log(firstNumber);                     //10
 
 
 //Reference type.. are passed by reference they can be changed
@@ -24,9 +24,9 @@ let persona = {
   name: 'nico'
 };
 
-console.log(persona); //{name: 'nico'}
-console.log(hello(persona)); //hello gracia
-console.log(persona); //{name: 'nico'}
+console.log(persona);                 //{name: 'nico'}
+console.log(hello(persona));          //hello gracia
+console.log(persona);                 //{name: 'nico'}
 
 
 

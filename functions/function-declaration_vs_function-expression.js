@@ -32,3 +32,16 @@ console.log(greet(), "hello world!");
 
 
 
+
+//function statements are hoisted, but function expression is not hoisted
+
+a();
+b();
+
+function a(){
+   console.log("This is a function statement example")
+}
+
+var b = function (){
+   console.log("This is a function expression example")
+}
