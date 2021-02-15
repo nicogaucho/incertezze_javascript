@@ -2,23 +2,46 @@
 - crear un programa que dada una variable num nos diga si es mayor que 100 
 - crear un programa que dada una variable num nos diga si es positivo o negativo
 - crear un programa que dadas 2 variables, num1 y num2, las sume y si la suma es mayor que 50 los multiplique  por 2, si no, por 3. 
+*/
 
- */
-
+/* 
 2.IF ELSE-IF
 - crear un programa que dada una variable num nos diga si es un multiplo de 3, si no lo es, nos diga si es multiplo de 8 y, si no, imprima un mensaje de error
 - crear un programa que dadas 2 variables booleanas, buen_tiempo y trabajo, nos diga si puedo ir a la playa. Si trabajo, no puedo ir, si no trabajo verifico que haga buen tiempo. En los casos negativos imprimir un mensaje adecuado.
+ */
 
-
-
+/* 
 3.FOR
 - crear un programa que reste 5 a los primeros 20 numeros (1,2,3,4...20)
-
 - crear un programa que sume 10 a todos los numeros pares y reste 10 a todos los impares, para los primeros 20 numeros (1,2,3,4...20)
 - crear un programa que calcule la suma de los primeros 20 numeros
 - crear un programa que calcule la suma de los primeros n numeros, donde el valor de n se recibe desde el prompt
+ */
+
+    let number = 20;
+    let sum = 0;
+   
+    for (let i = 0; i < number; i++) {
+      sum += i;
+    }
+
+    console.log("la suma de los primeros 20 numeros es: ", sum);  
 
 
+
+
+
+    
+    let nNumber = parseInt(prompt("Insertar a number int: "));
+    let sum = 0;
+
+    for (let i = 0; i < nNumber; i++) {
+      sum += i;
+    }
+
+    console.log("la suma de los primeros n numeros es: ", sum);  
+
+/* 
 4. Escribir una función que cree un array con n números aleatorios entre un mínimo y un máximo, pasados los tres parámetros de la función. Pasos:
 
 1. Crear función.
@@ -26,9 +49,9 @@
 3. Crear un array.
 4. Crear n números aleatorios.
 5. Agregar estos números en el array.
-6. Llamar la función.
+6. Llamar la función. */
 
-5.Calcular a través de una función el area de un cuadrado y imprimir el valor concatenandolo con una cadena descriptiva ejemplo  :  area cuadrado = valor 
+/* 5.Calcular a través de una función el area de un cuadrado y imprimir el valor concatenandolo con una cadena descriptiva ejemplo  :  area cuadrado = valor 
 
 6.Escribir una funcion que calcule el iva 
 
@@ -75,4 +98,4 @@ Una vez que selecciono el producto se quita una unidad de la cantidad y se pone 
 
 Preguntar después de cada producto puesto en el carrito si se quiere seguir comprando o sacar la cuenta. Si se pide la cuenta hay que calcular el total de los precios de los productos en nuestro carrito para luego quitarlo de la cartera.
 
-Imprimir el carrito, el total de la cuenta y cuanto queda en nuestra cartera.
+Imprimir el carrito, el total de la cuenta y cuanto queda en nuestra cartera. */

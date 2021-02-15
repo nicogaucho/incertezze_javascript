@@ -13,12 +13,10 @@
 
 ## 3.FOR
 * crear un programa que reste 5 a los primeros 20 numeros (1,2,3,4...20)
-
 * crear un programa que sume 10 a todos los numeros pares y reste 10 a todos los impares, para los primeros 20 numeros (1,2,3,4...20)
 * crear un programa que calcule la suma de los primeros 20 numeros
 * crear un programa que calcule la suma de los primeros n numeros, donde el valor de n se recibe desde el prompt
 * crear un programa que calcule el factorial de un numero n, donde el valor de n se recibe desde el prompt y además se verifique si el valor es de tipo numerico. Si no lo es, se sale del programa con un mensaje de error
-
 
 
 
