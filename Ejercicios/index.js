@@ -49,7 +49,10 @@
 3. Crear un array.
 4. Crear n números aleatorios.
 5. Agregar estos números en el array.
-6. Llamar la función. */
+6. Llamar la función.
+*/
+
+
 
 /* 5.Calcular a través de una función el area de un cuadrado y imprimir el valor concatenandolo con una cadena descriptiva ejemplo  :  area cuadrado = valor 
 
@@ -99,3 +102,89 @@ Una vez que selecciono el producto se quita una unidad de la cantidad y se pone 
 Preguntar después de cada producto puesto en el carrito si se quiere seguir comprando o sacar la cuenta. Si se pide la cuenta hay que calcular el total de los precios de los productos en nuestro carrito para luego quitarlo de la cartera.
 
 Imprimir el carrito, el total de la cuenta y cuanto queda en nuestra cartera. */
+
+
+ 
+// 1. escribir una funcion que, datos 2 numeros, genera un numero aleatorio entero, entre los 2 numeros
+
+function generateNumber(min, max) { 
+  return Math.round(Math.random() * (max - min) + min);
+}
+
+// 2. escribir una function que transforma un nombre en sus iniciales. Ejemplo: "Nico Gasparro" => "N.G."
+
+function iniciales(str) {
+  return str.split(" ").map(el => `${el[0]}.`).join("");
+}
+
+// 3. Algoritmo de Collatz: dato un numero natural mayor que 1, si esto es par dividirlo por 2, si es impar multiplicarlo por 3 y añadir 1. repetir la operacion para que el algoritmo termine siempre por 1. implementar el array y devolver un array con los valores de cada iteracion. Ejemplo 10 => [10,5,16,8,4,2,1]
+
+function collatz(num) {
+  // inicio un array
+  let array = [num]
+
+  while (num > 1) {
+    if (num % 2 == 0) {
+      num = num / 2
+    } else {
+      num = num * 3 + 1
+    }
+    array.push(num)
+  }
+  return array  
+}
+
+
+// 4. escribir un programa che imprima en consola todos los numeros de 1 a 100; para los multiplos de 3 imprir en consola "JAVA", para los multiplos de 5 imprimir en consola "SCRIPT", en fin para los numeros multiplos de 3 y 5 imprimir en consola "JAVASCRIPT"
+
+/* for (let i = 0; i <= 100; i++) {
+  if (i % 15 == 0) {
+    console.log("JAVASCRIPT");
+  } else if ( i % 3 == 0) {
+    console.log("JAVA");
+  } else if ( i % 5 == 0) {
+    console.log("SCRIPT");
+  } else {
+    console.log(i);
+  }
+} */
+
+// 5. calcula la serie de fibonacci que devuelve hasta n-numeros bajo forma de array. Ejemplo 9 => [1,1,2,3,5,8,13,21,34]
+
+function fibonacci(n) {
+  let final = [1,1]
+
+  for (let i = 2; i < n; i++) {
+      final.push(final[i-2] + final[i-1])
+  }
+
+  return final;
+}
+
+
+// 6. crea una funcion que devuelve la suma de los numeros en una cadena. 
+
+/* function stringSum(cadena) {
+  let arr = cadena.split("");
+  let sum = 1;
+
+  for (let i = 1; i < arr.length; i++) {  
+    if (Number(arr[i])) sum += Number(arr[i]) 
+  }
+  return sum;
+} */
+
+function stringSum(cadena) {
+  let creaArray = cadena.split("")
+  let filtraNumeros = creaArray.filter(el => Number(el));
+  let transformNumeros = filtraNumeros.map(el => Number(el));
+  let suma = transformNumeros.reduce((acc, sum)=> {
+      return sum += acc;
+  },0);
+  return suma;
+}
+  
+
+ 
+
+
