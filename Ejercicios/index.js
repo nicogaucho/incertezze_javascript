@@ -184,7 +184,74 @@ function stringSum(cadena) {
   return suma;
 }
   
+// escribir una función que combina 2 array de números de forma decreciente, eliminando duplicados
 
+function qqq(a1, a2){
+     let fin = new Set(a1.concat(a2).sort((a,b)=>b-a))
+     let final = Array.from(fin)
+     return final;
+}
+
+ //qqq([1,2],[1,2,3])
  
 
+ //escribir una función que acepta una cadena y devuelve la palabra más larga
 
+ function max(str){
+    return str.split(" ").sort((a,b)=>(b.length - a.length))[0];
+ }
+
+
+
+// escribir un programa que calcule los días que faltan hasta Año Nuevo
+
+
+  let día = new Date()
+  let añoNuevo = new Date("December 31, 2021")
+  let diff = Math.round((añoNuevo - día) / (1000 * 60 * 60 * 24))
+
+
+// devolver los usuarios con el nombre que lleva menos= de 4 letras
+
+  const Usuarios = [
+    {
+      'name': 'Nico',
+      'lastName': 'Gaspa'
+    },
+    {
+      'name': 'Nicola',
+      'lastName': 'Milella'
+    },
+    {
+      'name': 'Gracia',
+      'lastName': 'Ruiz'
+    },
+    {
+      'name': 'Chris',
+      'lastName': 'Cardone'
+    },
+    {
+      'name': 'Fernando',
+      'lastName': 'NoLoSe'
+    },
+    {
+      'name': 'Ni',
+      'lastName': 'yo'
+    }, 
+    {
+      'name': 'tu',
+      'lastName': 'ciao'
+    }
+  ];
+
+
+  
+  const controlLetrasUsuarios = Usuarios.map( persona => {
+      return [persona.name];
+   });
+
+  let filtro = controlLetrasUsuarios.filter( nombre => {
+    return nombre[0].length <= 4;
+  });
+  
+  let join = filtro.join(", ");

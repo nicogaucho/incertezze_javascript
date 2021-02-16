@@ -33,24 +33,25 @@ console.log(diasQueEmpiezanPorM);
 
 
 const personas = [
-  { 
-    nombre: 'Nic',
-    apellido: 'Gasparro'
-  },
-  { 
-    nombre: 'Gracia',
-    apellido: 'Diaz'
-  },
-  { 
-    nombre: 'Nico',
-    apellido: 'Milella'
-  },
-  { 
-    nombre: 'Christofer',
-    apellido: 'booo'
-  }
+    { 
+      nombre: 'Nic',
+      apellido: 'Gasparro'
+    },
+    { 
+      nombre: 'Gracia',
+      apellido: 'Diaz'
+    },
+    { 
+      nombre: 'Nico',
+      apellido: 'Milella'
+    },
+    { 
+      nombre: 'Christofer',
+      apellido: 'booo'
+    }
   ];
-
+  
+  
   const personaMenorQuatroLetras = personas.filter( persona => {
       return persona.nombre.length < 4;
   });
