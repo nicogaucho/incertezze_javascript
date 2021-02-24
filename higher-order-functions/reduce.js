@@ -6,7 +6,7 @@ let sum = numbers.reduce((sum, number) => { // sum será el valor anterior del a
   return sum; // 4.devuelve el acumulador
 }, 0); // 1. Inicializacion del acumulador
 
-console.log(sum);
+//console.log(sum);
 
 
 
@@ -28,7 +28,7 @@ const selecion = frutas.reduce((selection, fruta) =>{
     return selection;
 },{});
 
-console.log(selecion);
+//console.log(selecion);
 
 
 
@@ -40,9 +40,11 @@ const mediaPrecios = precios.reduce((media, precio, index, array) =>{ return med
 },0);
 
 console.log(mediaPrecios);
+   
+
 
 const suma = precios.reduce((sum, precio) => {
-  return sum + precio; 
+  return (sum + precio) / 3;
 },0);
 
 console.log(suma);
@@ -70,7 +72,7 @@ const inicioDias = dias.reduce((diaCorto, dia)  =>{
       return diaCorto;
 },[]);
 
-console.log(inicioDias);
+//console.log(inicioDias);
 
 
 
@@ -86,7 +88,7 @@ const largaPalabra = palabras.reduce((larga, palabra) =>{
   return larga; // Array iterator
 },[]);
 
-console.log(largaPalabra);
+//console.log(largaPalabra);
 
 
 
@@ -116,7 +118,7 @@ const personaId = personas.reduce((Id, persona) =>{
     return Id;
 },{});
 
-console.log(personaId);
+//console.log(personaId);
 
 
 
@@ -147,4 +149,4 @@ const losTamanos = animales.reduce((tamano, animal) =>{
     return tamano;
 },{});
 
-console.log(losTamanos);
+//console.log(losTamanos);

@@ -115,11 +115,28 @@
 
     <script>  
       console.log(document.head);
+
+
+      /* 
+
       
+      CARGA H1 SOBRE EL DOM 
+
+      window.onload = function() {
+      
+      const h1 = document.createElement('h1')
+      h1.innerHTML = `Ciao`
+      document.body.appendChild(h1)
+      }
+      */
+
+
       // añadir clase 
       let parafo = document.querySelectorAll('h4').forEach(el => {
         el.classList.add('bg-light', 'text-muted');
       });
+
+      
 
       // añadir estilo
       let title = document.querySelector('h2');

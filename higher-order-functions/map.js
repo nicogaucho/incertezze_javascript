@@ -13,6 +13,16 @@ console.log(comidaCocinada);
 
 
 
+let numeros = [4,8,10,12,16,20,24,28];
+
+const numeroEspecifico = numeros.map((value, index) => ({ value, index }));
+
+console.log(numeroEspecifico);
+
+
+
+
+
 let numbers = [1,2,3,4,5];
 
 let doble = numbers.map((number, index, array)=> {
@@ -24,12 +34,6 @@ console.log(doble);
 
 
 
-
-let numeros = [4,8,10,12,16,20,24,28];
-
-const numeroEspecifico = numeros.map((value, index) => ({ value, index }));
-
-console.log(numeroEspecifico);
 
 
 
