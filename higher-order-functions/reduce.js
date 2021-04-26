@@ -77,8 +77,6 @@ const inicioDias = dias.reduce((diaCorto, dia)  =>{
 
 
 
-
-
 const palabras = ['spray', 'limite', 'elite', 'esuberante', 'eliminacion', 'presentacion'];
 
 const largaPalabra = palabras.reduce((larga, palabra) =>{
@@ -89,8 +87,6 @@ const largaPalabra = palabras.reduce((larga, palabra) =>{
 },[]);
 
 //console.log(largaPalabra);
-
-
 
 
 
@@ -121,9 +117,6 @@ const personaId = personas.reduce((Id, persona) =>{
 //console.log(personaId);
 
 
-
-
-
 const animales = [{
   nombre: 'gato',
   tamano: 'pequeno'
@@ -138,6 +131,8 @@ const animales = [{
   tamano: 'largo'
 }];
 
+
+
 const losTamanos = animales.reduce((tamano, animal) =>{
   // verifica que el array lleva una propriedad tamano
     if (!tamano.hasOwnProperty(animal.tamano)) {
@@ -149,4 +144,4 @@ const losTamanos = animales.reduce((tamano, animal) =>{
     return tamano;
 },{});
 
-//console.log(losTamanos);
+console.log(losTamanos);

@@ -13,7 +13,7 @@ function controlaNumPares(num, callback) {
   callback(num, result);
 }
 
-//controlaNumPares(10, imprimir);
+controlaNumPares(10, imprimir);
 
 //Callbacks asíncronos. Si una callback se ejecuta después que termine una operación asíncrona, entonces es un callback asíncrona.
 
@@ -24,23 +24,22 @@ function vamosPedir() {
 }
 
 let pedido = vamosPedir();
-//console.log(`el pedido es: ${pedido}`);
+console.log(`el pedido es: ${pedido}`);
 
 //dentro de la funcion vamosPedir esa devuelve un valor despues de 1 segundo, pero el console.log ya ha ejecutado vamosPedir con un valor undefined porque son dos operaciones async. 
 
 //como podemos solucionar ?
 
-/* 
 function vamosAPedirAlgo(callback) {
   setTimeout(() => {
     const pedido = (Math.random() * 10) <= 5 ? 'Cafe' : 'tea';
     callback(pedido);
   }, 1000);
 }
- */
-/* vamosAPedirAlgo((pedido) => {
+
+vamosAPedirAlgo((pedido) => {
   console.log(`el pedido es: ${pedido}`);
-}); */
+}); 
 
 //vamosAPedirAlgo resuelve primero la callback asyncrona y luego imprime en consola 🎊 🎉🥳
 

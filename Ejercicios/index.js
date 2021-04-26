@@ -18,29 +18,6 @@
 - crear un programa que calcule la suma de los primeros n numeros, donde el valor de n se recibe desde el prompt
  */
 
-    let number = 20;
-    let sum = 0;
-   
-    for (let i = 0; i < number; i++) {
-      sum += i;
-    }
-
-    console.log("la suma de los primeros 20 numeros es: ", sum);  
-
-
-
-
-
-    
-    let nNumber = parseInt(prompt("Insertar a number int: "));
-    let sum = 0;
-
-    for (let i = 0; i < nNumber; i++) {
-      sum += i;
-    }
-
-    console.log("la suma de los primeros n numeros es: ", sum);  
-
 /* 
 4. Escribir una función que cree un array con n números aleatorios entre un mínimo y un máximo, pasados los tres parámetros de la función. Pasos:
 
@@ -204,7 +181,6 @@ function qqq(a1, a2){
 
 
 // escribir un programa que calcule los días que faltan hasta Año Nuevo
-
 
   let día = new Date()
   let añoNuevo = new Date("December 31, 2021")

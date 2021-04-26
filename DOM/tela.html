@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+
+    <style>
+        .tela {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Aulab</a></li>
+        <li class="breadcrumb-item active">Javascript</li>
+    </ol>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-6">
+                <form action="">
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Insertar hexadecimales</label>
+                        <input type="text" class="form-control" id="colorInput">
+                    </div>
+                    <button id="generaColor" class="btn btn-primary" type="submit">Generar</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="tela">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        /* 
+        var btn = document.querySelector('#color')
+        var tela = document.querySelector('.tela')
+
+        btn.addEventListener('click', () => 
+            // estructura rgb(255, 255, 0)
+            tela.style.backgroundColor = "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")"
+        )
+ 
+        function randomColor() {
+            return Math.round(Math.random() * (255 - 0) + 0);
+        }
+        randomColor();
+        */
+
+
+
+        // crear form para insertar num input de colores hexadécimales
+
+        let generaColor = document.querySelector('#generaColor')
+
+        let colorInput = document.querySelector('#colorInput')
+       
+            generaColor.addEventListener('click', (e) => {
+                e.preventDefault()               
+                // develve el numero 
+                let colorInput = document.querySelector('#colorInput').value
+                // cambie color la tela 
+                let tela =  document.querySelector('.tela').style.backgroundColor = "#" + colorInput
+                console.log(colorInput)
+            })
+
+        colorInput.addEventListener('keyup', event => {
+                console.log(event);
+        })
+        
+        
+    </script>
+</body>
+
+</html>

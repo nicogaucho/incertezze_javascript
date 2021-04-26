@@ -3,8 +3,6 @@ calculateVat = (price, vat) => price + ((price * vat) / 100);
 console.log(calculateVat(100, 10)); 
 
 
-
-
 /*
  Create a function, tipCalculator(), that has two parameters, a string representing the quality of the service received and a number representing the total cost.
 
@@ -16,11 +14,6 @@ Return the tip, as a number, based on the following:
 all other inputs should default to 18% 
 
 */
-
-
-
-
-
 
 
 // JavaScript Algorithm: Sum All The Numbers in a Range
@@ -52,6 +45,7 @@ function sumAll(arr) {
     
     return sum;
   };
+
   sumAll([1,4]); // returns 10. 
   sumAll([11,15]); //returns 65.
 

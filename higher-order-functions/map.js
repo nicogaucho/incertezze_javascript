@@ -76,8 +76,6 @@ console.log(diasCortos);
 
 
 
-
-
 const people = [{
   first_name: 'CJ',
   last_name: 'R.'
