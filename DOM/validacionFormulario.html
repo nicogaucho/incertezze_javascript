@@ -68,11 +68,11 @@
           passMessage.classList.add('text-danger')
           passMessage.innerHTML = "Can do better! 😅";
         }
-        //console.log(checkPassValidation(valor));
+        console.log(checkPassValidation(valor));
       });
 
 
-      confirmPass.addEventListener('keydown', () => {
+      confirmPass.addEventListener('keyup', () => {
         // control si los dos valores son iguales 
         if (confirmPass.value === pass.value) {
           passConfirmMessage.classList.remove('text-danger')
