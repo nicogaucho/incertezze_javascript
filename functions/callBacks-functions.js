@@ -4,7 +4,7 @@
 
 //Synchronous significa que las instrucciones de código se ejecutan inmediatamente una tras de otra de manera secuencial
 
-function imprimir(num, result) {
+/* function imprimir(num, result) {
   console.log(`${num} es ${result}`);
 }
 
@@ -13,10 +13,9 @@ function controlaNumPares(num, callback) {
   callback(num, result);
 }
 
-controlaNumPares(10, imprimir);
+controlaNumPares(10, imprimir);  */
 
 //Callbacks asíncronos. Si una callback se ejecuta después que termine una operación asíncrona, entonces es un callback asíncrona.
-
 function vamosPedir() {
   setTimeout(() => {
     return (Math.random() * 10) <= 5 ? 'Cafe' : 'tea';
@@ -29,7 +28,6 @@ console.log(`el pedido es: ${pedido}`);
 //dentro de la funcion vamosPedir esa devuelve un valor despues de 1 segundo, pero el console.log ya ha ejecutado vamosPedir con un valor undefined porque son dos operaciones async. 
 
 //como podemos solucionar ?
-
 function vamosAPedirAlgo(callback) {
   setTimeout(() => {
     const pedido = (Math.random() * 10) <= 5 ? 'Cafe' : 'tea';
@@ -46,7 +44,7 @@ vamosAPedirAlgo((pedido) => {
 
 //Nested callbacks
 
-function vamosAPedirAlgo(callback) {
+/* function vamosAPedirAlgo(callback) {
   setTimeout(() => {
     const pedido = (Math.random() * 10) <= 5 ? 'Cafe' : 'tea';
     callback(pedido);
@@ -73,6 +71,6 @@ vamosAPedirAlgo((pedido) => {
       console.log(estaServido);
     })
   })
-});
+}); */
 
 

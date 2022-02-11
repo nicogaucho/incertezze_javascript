@@ -1,7 +1,7 @@
 //function declaration vs function expression en javascript
 
 /* con la function declaration puedo llamar la funcion donde quiero : hoisting!
- */
+*/
 
 /* 
 greet();

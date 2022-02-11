@@ -3,8 +3,9 @@ calculateVat = (price, vat) => price + ((price * vat) / 100);
 console.log(calculateVat(100, 10)); 
 
 
+
 /*
- Create a function, tipCalculator(), that has two parameters, a string representing the quality of the service received and a number representing the total cost.
+Create a function, tipCalculator(), that has two parameters, a string representing the quality of the service received and a number representing the total cost.
 
 Return the tip, as a number, based on the following:
 ‘bad’ should return a 5% tip

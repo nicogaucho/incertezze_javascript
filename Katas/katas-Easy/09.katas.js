@@ -21,3 +21,16 @@ function maxMultiple(divisore, bound) {
 
 console.log(maxMultiple(2,7)); 
 
+
+// imprime en console todos los multiplo de 2 presentes en los primos 20 numero enteros positivos en orden decreciente
+/* for (let i = 20; i >= 0; i -= 1) {
+  if (i % 2 == 0) {
+    console.log(i);
+  }
+} */
+
+
+
+
+
+

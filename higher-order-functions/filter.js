@@ -8,9 +8,6 @@ console.log(numPares);
 
 
 
-
-
-
 const dias = [ 
   'lunes',
   'martes',

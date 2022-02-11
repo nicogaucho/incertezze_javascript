@@ -27,7 +27,7 @@ a = 15;
 console.log(a); 
 */
 
-//variable declaration cd
+//variable declaration 
 //let num;
 
 //variable assignation 

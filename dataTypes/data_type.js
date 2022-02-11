@@ -14,6 +14,8 @@ console.log(typeof boolean);
 let undefinedVariable 
 console.log(typeof undefinedVariable);
 
+console.log(typeof null);  // object // come undefined pero mi aspetto di avere un oggetto 
+
 let sym1 = Symbol();
 console.log(typeof sym1);
 */
@@ -38,3 +40,7 @@ console.log(typeof {
 });
  */
 
+
+let string = "Ey Tu, como te llamas. ¡Ey estoy hablando contigo!";
+
+// resultado : “Ey Tu, como te llamas, ¡Ey estoy hablando yo!”

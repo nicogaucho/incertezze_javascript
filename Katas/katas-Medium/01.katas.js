@@ -38,7 +38,4 @@ se il valore antecente é maggiore del valore posteriore lo posiziona dopo ( a >
 
 // prova a risolvere questo esercizio senza sortare...
 
-
-
-
 console.log(twoOldest([1,2,10,8,22,3,6,12,80,4,55,19]));

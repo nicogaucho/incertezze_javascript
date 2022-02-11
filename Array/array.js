@@ -1,13 +1,3 @@
-let array = [1, 2, 3];
-
-console.log(array);
-
-
-//varios metodos de los array 
-
-let personas = ['chris', 'nico', 'nicola', 'jacopo', 'gracia', 'mar'];
-
-console.log(personas.length); //.length toma el ultimo elemento no como indice en este caso 6
 
 
 // simplemente array.pop() modifica la estructura del array personas quidado!! uso Array.from para crear una copia del mismo array (funcional programming meaning 😇)

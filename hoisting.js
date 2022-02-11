@@ -6,7 +6,6 @@
 
 // El mecanismo de elevación sólo mueve la declaración y no la asignación.
 
-
 // HOISTING VAR  --- var is hoisted
 
 console.log(ejemplo); // undefinded  

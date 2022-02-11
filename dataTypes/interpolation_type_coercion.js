@@ -10,16 +10,6 @@ console.log(c);
  
 */
 
-//add numeber to string... 
-
-//console.log(2 + 2); //it's fine 
-
-//console.log(2 + '2'); //it's still fine but it's a string now...type coercion is happening 
-
-//console.log(true + true); //it's basically 1 + 1 that's awesome!!
-
-//console.log('2' + '2' - '2'); //  it's 20 unbelievible it's converting strings in numbers 
-
 //Type coercion implicit 
 
 /* 
@@ -39,10 +29,6 @@ let f = Number(a) + b;
 
 console.log(typeof f);
  */
-
-
-
-
 
 
 
@@ -79,3 +65,12 @@ if (a) {
 
 a &&= b;
 
+//add numeber to string... 
+
+//console.log(2 + 2); //it's fine 
+
+//console.log(2 + '2'); //it's still fine but it's a string now...type coercion is happening 
+
+//console.log(true + true); //it's basically 1 + 1 that's awesome!!
+
+//console.log('2' + '2' - '2'); //  it's 20 unbelievible it's converting strings in numbers 

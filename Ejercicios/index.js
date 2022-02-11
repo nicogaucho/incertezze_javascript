@@ -8,7 +8,7 @@
 2.IF ELSE-IF
 - crear un programa que dada una variable num nos diga si es un multiplo de 3, si no lo es, nos diga si es multiplo de 8 y, si no, imprima un mensaje de error
 - crear un programa que dadas 2 variables booleanas, buen_tiempo y trabajo, nos diga si puedo ir a la playa. Si trabajo, no puedo ir, si no trabajo verifico que haga buen tiempo. En los casos negativos imprimir un mensaje adecuado.
- */
+*/
 
 /* 
 3.FOR
@@ -16,7 +16,7 @@
 - crear un programa que sume 10 a todos los numeros pares y reste 10 a todos los impares, para los primeros 20 numeros (1,2,3,4...20)
 - crear un programa que calcule la suma de los primeros 20 numeros
 - crear un programa que calcule la suma de los primeros n numeros, donde el valor de n se recibe desde el prompt
- */
+*/
 
 /* 
 4. Escribir una función que cree un array con n números aleatorios entre un mínimo y un máximo, pasados los tres parámetros de la función. Pasos:
@@ -81,7 +81,7 @@ Preguntar después de cada producto puesto en el carrito si se quiere seguir com
 Imprimir el carrito, el total de la cuenta y cuanto queda en nuestra cartera. */
 
 
- 
+
 // 1. escribir una funcion que, datos 2 numeros, genera un numero aleatorio entero, entre los 2 numeros
 
 function generateNumber(min, max) { 
@@ -99,7 +99,7 @@ function iniciales(str) {
 function collatz(num) {
   // inicio un array
   let array = [num]
-
+  
   while (num > 1) {
     if (num % 2 == 0) {
       num = num / 2
@@ -130,11 +130,11 @@ function collatz(num) {
 
 function fibonacci(n) {
   let final = [1,1]
-
+  
   for (let i = 2; i < n; i++) {
-      final.push(final[i-2] + final[i-1])
+    final.push(final[i-2] + final[i-1])
   }
-
+  
   return final;
 }
 
@@ -144,7 +144,7 @@ function fibonacci(n) {
 /* function stringSum(cadena) {
   let arr = cadena.split("");
   let sum = 1;
-
+  
   for (let i = 1; i < arr.length; i++) {  
     if (Number(arr[i])) sum += Number(arr[i]) 
   }
@@ -156,78 +156,143 @@ function stringSum(cadena) {
   let filtraNumeros = creaArray.filter(el => Number(el));
   let transformNumeros = filtraNumeros.map(el => Number(el));
   let suma = transformNumeros.reduce((acc, sum)=> {
-      return sum += acc;
+    return sum += acc;
   },0);
   return suma;
 }
-  
+
 // escribir una función que combina 2 array de números de forma decreciente, eliminando duplicados
 
 function qqq(a1, a2){
-     let fin = new Set(a1.concat(a2).sort((a,b)=>b-a))
-     let final = Array.from(fin)
-     return final;
+  let fin = new Set(a1.concat(a2).sort((a,b)=>b-a))
+  let final = Array.from(fin)
+  return final;
 }
 
- //qqq([1,2],[1,2,3])
- 
+//qqq([1,2],[1,2,3])
 
- //escribir una función que acepta una cadena y devuelve la palabra más larga
 
- function max(str){
-    return str.split(" ").sort((a,b)=>(b.length - a.length))[0];
- }
+//escribir una función que acepta una cadena y devuelve la palabra más larga
+
+function max(str){
+  return str.split(" ").sort((a,b)=>(b.length - a.length))[0];
+}
 
 
 
 // escribir un programa que calcule los días que faltan hasta Año Nuevo
 
-  let día = new Date()
-  let añoNuevo = new Date("December 31, 2021")
-  let diff = Math.round((añoNuevo - día) / (1000 * 60 * 60 * 24))
+let día = new Date()
+let añoNuevo = new Date("December 31, 2021")
+let diff = Math.round((añoNuevo - día) / (1000 * 60 * 60 * 24))
 
 
-// devolver los usuarios con el nombre que lleva menos= de 4 letras
+// devolver los usuarios con el nombre que lleva menos de 4 letras
 
-  const Usuarios = [
-    {
-      'name': 'Nico',
-      'lastName': 'Gaspa'
-    },
-    {
-      'name': 'Nicola',
-      'lastName': 'Milella'
-    },
-    {
-      'name': 'Gracia',
-      'lastName': 'Ruiz'
-    },
-    {
-      'name': 'Chris',
-      'lastName': 'Cardone'
-    },
-    {
-      'name': 'Fernando',
-      'lastName': 'NoLoSe'
-    },
-    {
-      'name': 'Ni',
-      'lastName': 'yo'
-    }, 
-    {
-      'name': 'tu',
-      'lastName': 'ciao'
-    }
-  ];
+const Usuarios = [
+  {
+    'name': 'Nico',
+    'lastName': 'Gaspa'
+  },
+  {
+    'name': 'Nicola',
+    'lastName': 'Milella'
+  },
+  {
+    'name': 'Gracia',
+    'lastName': 'Ruiz'
+  },
+  {
+    'name': 'Chris',
+    'lastName': 'Cardone'
+  },
+  {
+    'name': 'Fernando',
+    'lastName': 'NoLoSe'
+  },
+  {
+    'name': 'Ni',
+    'lastName': 'yo'
+  }, 
+  {
+    'name': 'tu',
+    'lastName': 'ciao'
+  }
+];
 
 
+
+const controlLetrasUsuarios = Usuarios.map( persona => {
+  return [persona.name];
+});
+
+let filtro = controlLetrasUsuarios.filter( nombre => {
+  return nombre[0].length <= 4;
+});
+
+let join = filtro.join(", ");
+
+
+
+
+
+// reverse an array, without changing the original array 
+
+const numbers = [45, 12, 99, 2, 10, 45, 78, 34];
+
+function reverseData(data) {
   
-  const controlLetrasUsuarios = Usuarios.map( persona => {
-      return [persona.name];
-   });
-
-  let filtro = controlLetrasUsuarios.filter( nombre => {
-    return nombre[0].length <= 4;
-  });
+  const final = [];
   
-  let join = filtro.join(", ");
+  for (let i = 0; i < data.length; i++) {
+    final.unshift(data[i]);
+  }
+  return final;
+  
+}
+
+console.log(reverseData(numbers)); 
+
+
+
+
+// shuffle an array 
+
+
+const numbers = [45, 12, 99, 2, 10, 45, 78, 34];
+
+function shuffleNum(data) {
+  
+  const final = [...data];
+  
+  for (let index = 0; index < data.length; index++) {
+    
+    const i = Number(index);
+    const j = Math.floor(Math.random() * (i + 1));
+    // destructuring assignment
+    [ final[i], final[j] ] = [ final[j], final[i] ];
+    
+  }
+  return final;
+  
+}
+
+
+console.log(shuffleNum(numbers)); 
+
+
+
+// initializes an object with odd key and array value with only odd numbers, also even key with even value array of numbers
+const numbers = [45, 12, 99, 2, 10, 78, 34];
+numbers.reduce((acc, number) => {
+  if(number % 2 === 0) {
+    acc.even.push(number);
+  } else {
+    acc.odd.push(number);
+  }
+  
+  return acc;
+}, {odd: [], even: []});
+/* returns
+{ odd: [ 45, 99 ], even: [ 12, 2, 10, 78, 34 ] }
+*/

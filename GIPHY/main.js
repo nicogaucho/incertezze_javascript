@@ -7,17 +7,15 @@ console.log(loader);
 
 // random id endpoint 
 const baseUrl = 'https://api.giphy.com/v1';
-// stealing api_key from github  == api.giphy.com/v1/randomId 
+// stealing api_key from github == api.giphy.com/v1/randomId 
 const api_key = 'Tne7LiT79HXXntOhyyXPzSDDuBAYMbJP';
 
 const tags = [
-  'cats',
-  'cocacola',
-  'Matteo Salvini',
-  'macbook',
-  'football',
-  'skate', 
-  'surfing',
+  'nasa',
+  'space X',
+  'cocacola', 
+  'dogs',
+  'cats'
 ];
 
 // function to get gift by tag random from array tags 

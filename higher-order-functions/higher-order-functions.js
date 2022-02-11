@@ -84,7 +84,7 @@ p. ej. [2*5, 5*10, 10*2] == [10, 50, 20]
 2. dato un array con los dias de la semana, devuelve solo los dias que empiezan con la letra M
 3. dato un array crea un array solo con las personas la cual el primer nombre es menor de 4 letras 
 4. crea un nuevo array solo con los animales de tamaño pequeño
-5.crea un nuevo array solo con las palabras que llevan mas de 6 letras 
+5. crea un nuevo array solo con las palabras que llevan mas de 6 letras 
 */
 
 

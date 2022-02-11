@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const url = 'https://www.reddit.com/r/birdswitharms.json';
 
-// pasar una funcion de devuelve rsponse.json() dentro de la funcion fetch significa unar una higher-order-function 
+
 
 fetch(url)
   .then(response => response.json())
@@ -9,6 +9,8 @@ fetch(url)
     console.log(result);
   });
 
+  
+// pasar una funcion de devuelve rsponse.json() dentro de la funcion fetch significa unar una higher-order-function 
 
 // porque .then  es una higher-order-function ¿?
 

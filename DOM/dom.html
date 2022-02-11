@@ -173,6 +173,7 @@
       el.style.backgroundColor = '#33ff3c';
     });
     
+    // logo rotante
     document.addEventListener('scroll', () => {
       let scrolled = window.pageYOffset;
       document.querySelector('#user').style.transform = `rotateZ(${scrolled}deg)`;
