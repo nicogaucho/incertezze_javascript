@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/436e05527e.js" crossorigin="anonymous"></script>   
+    <style>
+        
+        body {
+            background-color: #212121;
+        }
+        
+        #wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .icon {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #141414;
+            box-shadow:  20px 20px 60px #000000,
+            -20px -20px 60px #212121;
+            position: absolute;
+            transition: all 1s ease-in-out;
+            cursor: pointer;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+<body>
+    
+    <div class="container my-5 py-5">
+        <div class="row my-5 py-5 align-items-center">
+            <div class="col-6 d-flex justify-content-center">
+                <div id="wrapper">
+                    <div class="center text-secondary">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-6">
+                <!-- texto -->
+                <div class="d-flex align-items-center">
+                    <img src="./../icons8-darth-vader.svg" width="80" alt="">
+                    <h1 class="text-warning">Star Wars Iconos</h1>
+                </div>
+                
+                <p id="content"></p>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        // 1. sitio donde subir el circulo con los iconos
+        
+        let data = {
+            "fa-brands fa-galactic-republic": "The Galactic Republic, often referred to as simply the Republic, is an interstellar state depicted in the fictional Star Wars universe, where it existed prior to the establishment of the Galactic Empire", 
+            "fa-brands fa-galactic-senate": "The Galactic Senate, also referred to as the Galactic Congress, the Congress of the Republic, or the Republic Senate, was the unicameral legislature of the Galactic Republic.", 
+            "fa-solid fa-jedi": "Master lightsaber combat and the Force to take on any challenge in this new third-person action-adventure Star Wars title from Respawn Entertainment.", 
+            "fa-brands fa-jedi-order": "The Jedi Order, also known as the New Jedi Order under Jedi Master Luke Skywalker, was a noble religious order of protectors united in their devotion to the light side of the Force.", 
+            "fa-brands fa-old-republic": "The Old Republic, simply known as SWTOR or TOR, is a massively multiplayer online role-playing game (MMORPG) that was produced and released by BioWare, a subsidiary of Electronic Arts.", 
+            "fa-brands fa-jedi-order": "The Jedi Order, also known as the New Jedi Order under Jedi Master Luke Skywalker, was a noble religious order of protectors united in their devotion to the light side of the Force.", 
+            "fa-brands fa-jedi-order": "The Jedi Order, also known as the New Jedi Order under Jedi Master Luke Skywalker, was a noble religious order of protectors united in their devotion to the light side of the Force.", 
+            "fa-solid fa-book-journal-whills": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, accusamus quibusdam? Repellendus consequatur eius voluptatem assumenda labore accusantium molestiae delectus magni, animi maxime illum officiis expedita facilis molestias eligendi ab."
+        }
+        
+        let wrapper = document.querySelector('#wrapper');
+        
+        Object.keys(data).forEach(el => {
+            let div = document.createElement('div')
+            div.classList.add('icon')
+            div.innerHTML = `<i class="${el} text-warning"></i>`
+            wrapper.appendChild(div)
+        })
+        
+        const icons = document.querySelectorAll('.icon');
+        
+        const content = document.querySelector('#content');
+        
+        const center = document.querySelector('.center');
+        
+        
+        // click sulle icone per farle muovere
+        icons.forEach((el, label) => {
+            el.addEventListener('click', () => {
+                let clickedAngle = Number(el.getAttribute("data-angle"))
+                console.log(clickedAngle, "clickedAngle");
+                let exp = 360 - Math.abs(clickedAngle)
+                
+                content.innerHTML = Object.values(data)[label];
+                content.classList.add('text-secondary')
+                
+                center.innerHTML =  `<i class="${Object.keys(data)[label]} fa-3x"></i>`
+                
+                console.log(`<i class="${Object.keys(data)[label]} fa-3x"></i>`);
+                
+                placeIcons(exp, false)
+            })
+        })
+        
+        
+        
+        // disponi le icone inizialmente
+        
+        function placeIcons(angle, setup) {
+            icons.forEach((el, i) => {
+                el.style.transform = `rotate(-${Math.abs(angle + (i + 1) * 360 / icons.length)}deg) translate(150px) rotate(${Math.abs(angle + (i + 1) * 360 / icons.length)}deg)`
+                if(setup) el.dataset.angle = Math.abs(angle + (i + 1) * 360/icons.length)
+                console.log(el)
+            })
+        }
+        
+        placeIcons(0, true)
+        
+        
+        
+    </script>
+    
+    
+    
+</body>
+</html>

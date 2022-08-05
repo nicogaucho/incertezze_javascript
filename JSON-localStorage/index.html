@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div id="laptopWrapper">
+            <h1>💻</h1>
+            <ul id="list">
+            </ul>
+        </div>
+        <div>
+            <button id="crea">crear 🚀</button>
+            <button id="imprime">imprimir 🖨</button>
+            <button id="mostra">mostrar 🎪</button>
+            <button id="limpia">limpiar 📭</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        // localStorage, sessionStorage
+        // ingresar datos en una estrutura datos array de objetos 
+        // guardar datos en JSON en localStorage
+        // parsear datos en objetos 
+        // mostrar datos 
+
+
+        let crea = document.querySelector('#crea')
+        crea.addEventListener('click', () => {
+            create()
+        })
+
+        let imprime = document.querySelector('#imprime')
+        imprime.addEventListener('click', () => {
+            show()
+        })
+
+        let mostra = document.querySelector('#mostra')
+        mostra.addEventListener('click', () => {
+            getData()
+        })
+
+        let limpia = document.querySelector('#limpia')
+        limpia.addEventListener('click', () => {
+            removeData()
+        })
+
+        /* class Producto {
+            constructor(name, price){
+                this.name = name;
+                this.price = price;
+            }
+        } */
+
+        let data = [];
+
+        function create() {
+            let name = prompt("nombre ordenador");
+            let price = prompt("precio ordenador");
+            data.push({name: name, price: price});
+            localStorage.setItem('product', JSON.stringify(data));
+        }
+
+
+        function show() {
+            console.log(localStorage)
+        }
+
+
+        function getData() {
+            let items = localStorage.getItem('product') 
+            let datos = JSON.parse(items);
+            console.log(datos)
+            datos.forEach(element => {
+                let list = document.querySelector('#list');
+                let item = document.createElement('li');
+                item.textContent = `NAME LAPTOP: ${element.name}, PRICE LAPTOP: ${element.price}`
+                list.appendChild(item);
+            });
+        }
+
+
+        function removeData() {
+            return localStorage.clear()
+        }
+
+
+    </script>
+</body>
+</html>

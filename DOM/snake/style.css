@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#game {
+    width: 80vmin;
+    height: 80vmin;
+    outline: 2px solid black;
+    display: grid;
+    /* 
+    grid-template-columns: repeat(1fr, 20);
+    grid-template-rows: repeat(1fr, 20); 
+    */
+}
+
+.cell {
+    outline: .5px solid rgb(247, 247, 247);
+}
+
+.snake-head {
+    background-color: black;
+}
+
+.snake-tail {
+    background-color: black;
+}
+
+.apple {
+    background-color: red;
+}
+

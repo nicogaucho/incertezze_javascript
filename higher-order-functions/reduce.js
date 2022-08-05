@@ -15,20 +15,15 @@ let sum = numbers.reduce((sum, number) => { // sum será el valor anterior del a
 const frutas = ['platano', 'manzana', 'uva', 'naranja', 'melacoton', 'platano', 'fresa', 'melon', 'fresa', 'fresa', 'naraja', 'manzana','platano', 'uva', 'platano', 'fresa', 'melon'];
 
 const selecion = frutas.reduce((selection, fruta) =>{
-  // empezamos de object selection vacio
-  // verifica si cada fruto esta en el objecto selection como su propriedad
-    // if si hay
     if (fruta in selection) {
-       // incrementa el valor de la propriedad de fruta en el objeto selecion
-       selection[fruta] ++; // access dynamic property
+       selection[fruta] ++;
     } else {
-      // añade la propriedad a selecion con valor 1 
-      selection[fruta] = 1; // add property dynamically to an object
+      selection[fruta] = 1;
     }
     return selection;
 },{});
 
-//console.log(selecion);
+console.log(selecion);
 
 
 

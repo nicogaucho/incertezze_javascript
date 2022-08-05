@@ -1,6 +1,8 @@
 // en este ejercicio crearemos una funcion que toma una lista de numeros enteros positivos y cadenas. Return un array de solo numeros sin las cadenas. 
 
-// ejemplo filteredList([1,2,3,'a','b',4,5,6]) ==> [1,2,3,4,5,6]
+filteredList([1,2,3,'a','b',4,5,6]) 
+
+result [1,2,3,4,5,6]
 
 
 function filteredList(list) {

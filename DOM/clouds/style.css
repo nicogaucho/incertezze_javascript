@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#game {
+   height: 80vmin;
+   width: 150vmin; 
+   background:  linear-gradient(0deg, rgb(247, 99, 13) 0%, rgb(45, 67, 138) 100%);
+   overflow: hidden;
+}
+
+.clouds {
+    height: 70%;
+    width: 100%;
+    position: relative;
+}
+
+.cloud {
+    /* vmin si adatta al dispositivo */
+    width: 30vmin;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges; 
+    position: absolute;
+}
+
+.road {
+    height: 30%;
+    width: 100%;
+    background: gray;
+    position: relative;
+}
+
+.road-line {
+    position: absolute;
+    height: 5%;
+    width: 20%;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    background: rgb(211, 211, 211);
+}
+
+#sonic {    
+    position: absolute;
+    z-index: 100;
+}
+
+.food {
+    position: absolute;
+    z-index: 3;
+    width: 100px;
+}

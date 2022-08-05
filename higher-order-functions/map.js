@@ -13,6 +13,10 @@ console.log(comidaCocinada);
 
 
 
+
+
+
+
 let numeros = [4,8,10,12,16,20,24,28];
 
 const numeroEspecifico = numeros.map((value, index) => ({ value, index }));
@@ -128,8 +132,8 @@ const theNumbers = [4, 8, 15, 16, 23, 42];
 
 const valueIndex = theNumbers.map((value, index, array) =>{
   return {
-    value, 
-    index
+    ValueIndex: index, 
+    ValueNumber: value
   };
 });
 

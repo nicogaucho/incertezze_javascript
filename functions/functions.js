@@ -38,7 +38,6 @@ function sumAll(arr) {
     let newArr = [];
     
     for(let i = min; i <= max; i++){
-        
       newArr.push(i);
     }
     
@@ -50,3 +49,23 @@ function sumAll(arr) {
   sumAll([1,4]); // returns 10. 
   sumAll([11,15]); //returns 65.
 
+
+function allArgs(args) {
+  let startArgs = 0;
+  let i = 0;
+  while(i < args.length) {
+    startArgs += args[i];
+    i++;
+  }
+  return startArgs;
+}
+
+allArgs([1,2,4]) 
+
+
+function anotherRandomFunc(){
+  message = "Hello";
+  let message;
+}
+
+anotherRandomFunc();

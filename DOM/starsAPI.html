@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container my-5 py-5">
+        <div id="starsWrapper" class="row">
+            <div id="load" class="col-12">loading data...</div>
+            
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        // task : el cliente nos pasa un dataset de estrellas y quiere que nuestra plataforma espacial enseñe info sobre las estrellas 
+        
+        let load = document.querySelector('#load')
+        let available = document.querySelector('#available')
+
+        fetch("https://raw.githubusercontent.com/astronexus/HYG-Database/master/hygdata_v3.csv")
+        .then(response => response.text())
+        .then(data => {
+
+            // se c'e' attesa di dati fai un loading
+            load.classList.add('d-none')
+
+            let rows = data.split("\n")
+            let cols = rows.map(el => el.split(","))
+            let properValue = cols.filter(star => star[6] != '')
+            let referenceStar = properValue.map(el => {
+                return {
+                    name: el[6],
+                    distance: el[9], 
+                    coordinates: `x: ${el[17]}, y: ${el[18]}, z: ${el[19]}`
+                }
+            })
+            let sliced = referenceStar.slice(1,-1).sort((a,b) => a.distance - b.distance);
+
+            let starsWrapper =  document.querySelector('#starsWrapper');
+            
+            sliced.forEach(el => {
+                let col = document.createElement('div')
+                col.classList.add('col-12', 'col-md-4', 'mb-3')
+                col.innerHTML = `
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${el.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Parsec distance from Sun</h6>
+                        <p class="card-text">${el.distance}</p>
+                        <p class="card-text">Coordinates</p>
+                        <p class="">${el.coordinates}</p>
+                    </div>
+                </div>
+                `
+                starsWrapper.appendChild(col)
+            });
+        })
+        
+        // async function getData() {
+        //     const response = await fetch("https://raw.githubusercontent.com/astronexus/HYG-Database/master/hygdata_v3.csv")
+
+        //     await new Promise((resolve) => setTimeout(resolve, 2000))
+
+        //     if ( response.ok ) {
+        //         load.classList.add('d-none')
+        //         const data = await response.json()
+        //         console.log(data)
+        //     } else {
+        //         available.classList.remove('d-none')
+        //     } 
+            
+        // }
+
+        // getData()
+        
+
+
+        
+        
+    </script>
+</body>
+</html>
