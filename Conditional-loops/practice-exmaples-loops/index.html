@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        
+        // inserire un nome e un congnome mediante prompt, verificare che non siano stringa vuote entrambi, dopodiche mostrare in output il nome e il cognome
+        
+        
+        /* let name = prompt('inserisci il nome: ');
+        let lastName = prompt('inserisci il cognome: ');
+        
+        if (name != "" && lastName != "") {
+            alert(`il nome e congnome inseriti sono: ${name} ${lastName}`)
+        } else {
+            alert(`ERROR, ripeti l'operazione`)
+        } */
+        
+        
+        
+        
+        //Pedir número mediante prompt y sumarle otro número en cada repetición,realizando una salida por cada resultado
+        
+        //let num = parseInt(prompt('inserisci numero'));
+        
+        // for (let i = 0; i <= 5; i++) {
+            //     num = num + i;
+            //     // 11 
+            //     // 13
+            //     // 16 
+            //     // 20 
+            //     // 25
+            // }
+            // console.log(num);
+            
+            //Pedir un texto mediante prompt, concatenar un valor en cada repetición, realizando una salida por cada resultado, hasta que se ingresa “ESC”.
+            //Pedir un número por prompt, repetir la salida del mensaje “Hola” la cantidad de veces ingresada.
+            
+            
+            //1 step 
+            /* let insertNum = prompt('insetisci un num: ');
+            if (typeof insertNum == "number") {
+                console.log( `il numero inserito é ${insertNum}`);
+            } else {
+                console.log('non hai inserito un num');
+            } */ 
+           
+            /*
+            2 step che transforma cmq num ma se inserisco cadena 
+            let insertNum = Number(prompt('insetisci un num: '));
+            if (typeof insertNum == "number") {
+                console.log( `il numero inserito é ${insertNum}`);
+            } else {
+                console.log('non hai inserito un num');
+            } */
+            
+            /* 
+            3 step 
+            anche se inserisci stringa da come risultato NaN che va nei numeri e ti ritorna il primo console
+            
+            let insertNum = Number(prompt('insetisci un num: '));
+            if (typeof insertNum == "number" && !Number.isNaN(insertNum)) {
+                console.log( `il numero inserito é ${insertNum}`);
+            } else {
+                console.log('non hai inserito un num');
+            } 
+            */
+            
+            
+            /*  count smiley-faces
+            - smiley faces rules: 
+            * each smiley face must contain a valid pair of eyes as : or ; 
+            * a smiley face can have a nose but it does not have to. Valid characters for nose are - or ~ 
+            * every smiley face must have a mouth marked with ) or D
+            
+            example of smiley faces valid : 
+            :) or :D or ;-D or :~)
+            
+            invalid smiley faces 
+            ;( :> :} :] */
+            
+            let face = ':~';
+            let count = 0;
+        
+            
+            if (face.length == 2 || face.length == 3) {
+                if (face[0] == ':' || face[0] == ';') {
+                    if (face[1] == '-' || face[1] == '~') {
+                        if (face[2] == ')' || face[2] == 'D') {
+                            count++
+                        }
+                    } else if ((face[1] == ')' || face[1] == 'D') && face.length == 2) {
+                        count++
+                    }
+                }
+            }
+            
+            console.log(count);
+            
+            
+            
+            
+        </script>
+    </body>
+    </html>

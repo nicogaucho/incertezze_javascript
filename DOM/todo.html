@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-uppercase">todo list</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <input id="inputNewTodo" type="text" class="form-control" placeholder="TODO" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <button id="add" type="submit" class="btn btn-primary">Add new todo</button>
+                <button id="show" type="submit" class="btn btn-primary">show todos</button>
+                <button id="removeAll" type="submit" class="btn btn-primary">Remove all todos</button>
+            </div>
+            <div class="col-6">
+                <table id="tableBody"></table>
+            </div>  
+        </div>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    
+    <script>      
+        const tableBody = document.querySelector("#tableBody");
+        // dichiare un oggetto in cui inserire il tuoi todo 
+        
+        let todos = {
+            todos: [],         
+            // Popolare la tabella todos in modo dinamico
+            'showTodos': function() {
+                // Ripulire il corpo della tabella dei todos
+                tableBody.innerHTML = '';                
+                this.todos.forEach((el, index) => {
+                    let row = document.createElement('tr')
+                    row.innerHTML = `
+                    <td>${el.content}</td>
+                    <button onclick="removeTodo(${index})" type="button" class="btn btn-primary">delete</button>
+                    `;
+                    // Inseriamo la row all'interno del corpo della tabella
+                    tableBody.appendChild(row);
+                })
+            },
+            'removeAll': function() {
+                todos.todos.splice(0, todos.todos.length)
+            }
+        }
+
+        function addNewTodo(content) {
+            let newTodo = {
+                    content
+                };
+            todos.todos.push( newTodo )
+            todos.showTodos()
+        }
+
+        function removeTodo(index) {
+                todos.todos.find((el, i) => todos.todos.indexOf(el) == index)
+                todos.todos.splice(index, 1)
+                todos.showTodos()
+            } 
+        
+        const btnShow = document.querySelector("#show");
+        btnShow.addEventListener('click', () => {
+            todos.showTodos()
+            console.log(todos)
+        })
+
+        const btnAddNewTodo = document.querySelector("#add");
+        btnAddNewTodo.addEventListener('click', () => {
+            const inputNewTodo = document.querySelector('#inputNewTodo')
+            addNewTodo( inputNewTodo.value )
+            console.log(todos)
+        })
+
+        const removeAll = document.querySelector('#removeAll')
+        removeAll.addEventListener('click', () => {
+            todos.removeAll()
+            console.log(todos)
+            todos.showTodos()
+        })        
+
+    </script>
+</body>
+</html>

@@ -15,10 +15,6 @@ function isPangram(str) {
         return store 
     });
     
-    
-  
-    
-    
 }
 
 

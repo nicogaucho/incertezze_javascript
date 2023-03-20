@@ -34,7 +34,6 @@
   
   
   <script>  
-    
     /* 
     pseudo code
     1. seleccione los elementos en el dom
@@ -42,8 +41,6 @@
     3. interceptado el valor tengo que hacer una función de control
     4. aplico la utilidad de validación sobre el valor de la entrada 
     */
-    
-    
     // 1.seleccione los elementos en el dom
     let pass = document.querySelector('#passValidation');
     let confirmPass = document.querySelector('#confirmPassValidation');
@@ -54,9 +51,9 @@
     let btn = document.querySelector('#submit');
     
     //2. crear el evento de entrada para interceptar el valor en el campo de entrada 
-    pass.addEventListener('keydown', () => {
+    pass.addEventListener('input', (e) => {
+      e.preventDefault()
       let valor = pass.value;
-      
       //4.aplico la utilidad de validación sobre el valor de la entrada
       if (checkPassValidation(valor)) {
         // añado clases al control positivo
@@ -66,13 +63,13 @@
       } else {
         passMessage.classList.remove('text-success')
         passMessage.classList.add('text-danger')
-        passMessage.innerHTML = "Can do better! 😅";
+        passMessage.innerHTML = "password must be at least 6 characters and one uppercase 😅";
       }
       console.log(checkPassValidation(valor));
     });
     
     
-    confirmPass.addEventListener('keyup', () => {
+    confirmPass.addEventListener('enter', () => {
       // control si los dos valores son iguales 
       if (confirmPass.value === pass.value) {
         passConfirmMessage.classList.remove('text-danger')
@@ -92,10 +89,16 @@
       // control que contenga un mínimo de 6 caracteres
       // Comprobación de que no hay caracteres especiales
       let caratteri = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
-      if (str.length > 6 && !str.match(caratteri)) {
+      let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10}$/
+      /* if (str.length > 6 && !str.match(caratteri)) {
         return true;
       } else {
         return false;
+      } */
+      if ( str.match(new RegExp(regex, 'gi')) ) {
+        return true
+      } else {
+        return false
       }
     };
     

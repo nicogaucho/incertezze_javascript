@@ -1,17 +1,16 @@
+// creare un array 
 let array = [1, 2, 3];
 
-console.log(array);
 
+// altra forma di creare un array 
+const a = new Array(1, 2, 3)
 
 // sostituire elemento nella posizione 0, evitare di creare spazi vuoti!!
 let arr = ['das', 'dasd', 'fjhdsbf'];
-
 arr[0] = "aaa";
 
 console.log(arr);
 
-
-//varios metodos de los array 
 
 let personas = ['chris', 'nico', 'nicola', 'jacopo', 'gracia', 'mar'];
 

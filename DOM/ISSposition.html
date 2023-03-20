@@ -11,35 +11,34 @@
 
     <script>
     
-        /* // 1. richesta dei dati
-        let positionInternationalSpaceStation = 'https://api.wheretheiss.at/v1/satellites/25544';
+    //      1. richesta dei dati
+    //     let positionInternationalSpaceStation = 'https://api.wheretheiss.at/v1/satellites/25544';
 
-        // 4. usa un setInterval per vedere come cambia la posizione della stazione spaziale internazionale in live 
+    //     4. usa un setInterval per vedere come cambia la posizione della stazione spaziale internazionale in live 
 
-       setInterval(() => {
+    //    setInterval(() => {
         
-        fetch(positionInternationalSpaceStation)
-            .then(respose => respose.json())
-            .then(data => {
-                // 2. avrai i tuoi dati con le coordinate della stazione spaziale internazionale in quel momento... 
-                console.log(data);
-                // 3. usa destrucuting per prenderti le property che ti servono 
+    //     fetch(positionInternationalSpaceStation)
+    //         .then(respose => respose.json())
+    //         .then(data => {
+    //             // 2. avrai i tuoi dati con le coordinate della stazione spaziale internazionale in quel momento... 
+    //             console.log(data);
+    //             // 3. usa destrucuting per prenderti le property che ti servono 
                 
-                //5. usa api nominatim per otterere la locazione corrente rispetto alle cordinate della iss
-                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${data.latitude}&lon=${data.longitude}`)
-                    .then(respose => respose.json())
-                    .then(data => {
-                        //avrai in tempo reale i tuoi dati
-
-                        //6. ricorda che se esce un oggetto error é una posizione invalida (sul mare)
-                        if(data.error == "Unable to geocode") {
-                            console.log('sul mare')
-                        } else {
-                            console.log(data)
-                        }
-                    })                
-            })
-       }, 1000);  */
+    //             //5. usa api nominatim per otterere la locazione corrente rispetto alle cordinate della iss
+    //             fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${data.latitude}&lon=${data.longitude}`)
+    //                 .then(respose => respose.json())
+    //                 .then(data => {
+    //                     //avrai in tempo reale i tuoi dati
+    //                     //6. ricorda che se esce un oggetto error é una posizione invalida (sul mare)
+    //                     if(data.error == "Unable to geocode") {
+    //                         console.log('sul mare')
+    //                     } else {
+    //                         console.log(data)
+    //                     }
+    //                 })                
+    //         })
+    //    }, 1000); 
 
     </script>
 </body>

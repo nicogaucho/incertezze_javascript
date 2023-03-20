@@ -179,7 +179,6 @@ function max(str){
 }
 
 
-
 // escribir un programa que calcule los días que faltan hasta Año Nuevo
 
 let día = new Date()

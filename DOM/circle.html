@@ -92,11 +92,12 @@
   <script>
     let circle = document.querySelector('.circle');
     let homes = document.querySelectorAll('.home');
-    let aperto = false;
+    let aperto;
 
-    circle.addEventListener('click', () => {
+    circle.addEventListener('click', (e) => {
+      e.preventDefault()
 
-      if (aperto == false) {
+      if (aperto != true) {
         homes.forEach((el, i) => {
 
           // console.log(element); fai vedere il sinolo tag stampato in console
@@ -113,7 +114,7 @@
           el.classList.add('text-white')
 
         });
-        aperto = !aperto
+        aperto = true
 
       } else {
         homes.forEach((el, i) => {
@@ -123,9 +124,12 @@
           el.style.backgroundColor = 'white'
           el.classList.add('text-white')
         });
+        aperto == false
       }
+
      })
 
+     console.log(aperto)
 
 
 

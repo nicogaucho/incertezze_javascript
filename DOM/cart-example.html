@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cart</title>
+  <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <style>
+    body {
+      height: 100vh;
+      width: 100%;
+      background-color: #d3d3d3;
+    }
+    
+    .sideBar {
+      width: 40%;
+      height: 100%;
+      background-color: #fff;
+      position: fixed;
+      top: 0%;
+      right: -40%;
+      transition: 0.4s;
+      z-index: 9999;
+    }
+    
+    div button {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+    }
+  </style>
+</head>
+
+
+<body>
+  
+  <div class="sideBar">
+    <div>
+      <button id="closeBtn" class="btn">
+        <i class="bi bi-x-circle fs-3"></i>          
+      </button>
+    </div>
+    <div class="container my-5 py-5">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <p class="fw-bold">Your order</p>
+          <hr>
+          <div id="prodCartWrapper">
+              
+          </div>
+          <hr>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="text-secondary">Delivery</>
+              <p class="fw-bold">20$</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="text-secondary">Descount</p>
+              <p class="fw-bold">-20$</p>
+            </div>
+            <div class="p-5 bg-light">
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="fw-bold h2">Total</p>
+                <p id="totalCart" class="fw-bold h2"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-8">
+          <div class="container my-5 py-5">
+            <div class="row">
+              <div class="col-12">
+                <p class="h2 fw-bold">Lista Prodotti</p>
+              </div>
+              <div class="col-12">
+                <div id="productWrapper" class="row">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 h-100">
+          <div class="container my-5 py-5">
+            <div class="row">
+              <div class="col-12 text-end">
+                <button id="openBtn" class="btn">
+                  <i class="bi bi-cart fs-1 me-5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+      
+      // COSE DA FARE: 
+      // bottone da cliccare html ✅
+      // contenitore laterale da far apparire (HTML) ✅
+      // mettere nel contenitore lista prodotti da fare apparire (HTML) ✅
+      // mettere un bottone di chiusura (HTML) ✅
+      // nascondere dal margine sinistro il contenitore (CSS) ✅
+      // selezionare il nodo bottone cart dal dom (JS) ✅
+      // selezionare il contenitore del dom (JS) ✅
+      // selezione il bottone chiudi dal dom (JS) ✅
+      // aggiungere un ascoltatore di eventi al bottone cart ( click ) (JS) ✅
+      // definire una funzione che... (JS) ✅
+      // modificare direttamente lo stile per posizionarlo verso la pagina, per aprirlo (JS) ✅
+      // aggiungere un ascoltatore di eventi al bottone chiudi ( click ) (JS) ✅
+      // definire una funzione che... (JS) ✅
+      // aggiungere una classe per posizionarlo all'origine, per chiuderlo (JS) ✅
+      
+      const openBtn = document.querySelector('#openBtn');
+      const closeBtn = document.querySelector('#closeBtn');
+      const sideBar = document.querySelector('.sideBar');
+      
+      openBtn.addEventListener('click', () => {
+        sideBar.style.right = "0%";
+      })
+      
+      closeBtn.addEventListener('click', () => {
+        sideBar.style.right = "-40%";
+      })
+      
+      
+      const productWrapper = document.querySelector('#productWrapper');
+      const prodCartWrapper = document.querySelector('#prodCartWrapper');
+      const totalCart = document.querySelector('#totalCart');
+      
+      const product = [
+      {
+        name: "macbook", 
+        price: 1000, 
+        type: "laptop"
+      }, 
+      {
+        name: "acer", 
+        price: 500, 
+        type: "laptop"
+      }, 
+      {
+        name: "hp", 
+        price: 1500, 
+        type: "laptop"
+      }, 
+      ];
+      
+      product.forEach(element => {
+        let div = document.createElement('div');
+        div.classList.add('col-12', 'mb-3');
+        div.innerHTML = `
+        <div class="card" data-prod="${element.name}" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${element.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${element.type}</h6>
+            <p class="m-0">${element.price}</p>
+            <a href="#" data-cart="${element.type}" class="card-link text-decoration-none btn btn-dark text-white">ADD TO CART</a>
+          </div>
+        </div>
+        `
+        productWrapper.append(div);
+        
+      });
+      
+      const data = [];
+      
+      const cartbtn = Array.from(document.querySelectorAll('[data-cart]')).forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+          let item = product.find((el) => product.indexOf(el) == i);
+          data.push(item);
+          // localStorage.setItem('prodotti', JSON.stringify(data));
+          // let items = localStorage.getItem('prodotti');
+          // let final = JSON.parse(items);
+          showProdInCart(final);
+        })  
+      })
+      
+      
+      
+      function showProdInCart(data) {
+        prodCartWrapper.innerHTML = "";
+        totalCart.textContent = "";
+        data.forEach(prod => {
+          let div = document.createElement('div')
+          div.classList.add('card','mb-4','bg-transparent','border-0', 'shadow-sm')
+          div.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title fw-bold mb-3">${prod.name}</h5>
+            <div class="d-flex align-items-center">
+              <p class="card-text small text-secondary m-0 me-3">Type</p><span class="fw-bold">${prod.type}</span>
+              <p class="card-text small text-secondary m-0 mx-3">Color </p><span class="fw-bold">black</span>
+            </div>
+            <p data-price="price" class="fw-bold mt-3">${prod.price}€</p>
+          </div>
+          `
+          prodCartWrapper.append(div);
+        })
+        
+        totalCart.textContent = data.reduce((t,n) => {
+          t += n.price
+          return t
+        }, 0) + " $"
+
+      }
+      
+
+      
+    </script>
+    </body>
+    </html>
+    

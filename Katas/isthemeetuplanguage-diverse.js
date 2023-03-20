@@ -83,7 +83,6 @@ function isLanguageDiverse(array) {
   
   let result = final.every(el => el <= 1)
   return result 
-  
 }
 
 console.log(isLanguageDiverse(list1), false);

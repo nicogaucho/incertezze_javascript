@@ -36,8 +36,6 @@ for (let i = 0; i < num.length; i++) {
 console.log(a);
 
 
-
-
 // calcular la media de la puntuacion del partido de bowling, la maquina puse numeros negativos y queremos eliminarlos, haciendo la media solo de los numeros positivos
 
 let puntuacion = [20, 10, -5, 5, 35, -10, 25, -15, 15, 30, 40, -25];
