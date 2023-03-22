@@ -10,91 +10,175 @@
 </head>
 <body>
   
-  <div class="container my-5 py-5">
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <form>
+  <div class="container vh-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      
+      <div class="col-6">
+        <form action="">
           <div class="mb-3">
-            <label for="passValidation" class="form-label">Password</label>
-            <input id="passValidation" type="text" class="form-control">
-            <p id="passMessage">&nbsp</p>  
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Username">
+            <div id="UserMessage" class="form-text"></div>
           </div>
           <div class="mb-3">
-            <label for="confirmPassValidation" class="form-label">Password</label>
-            <input id="confirmPassValidation" type="text" class="form-control">
-            <p id="passConfirmMessage">&nbsp</p>
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="Email">
+            <div id="EmailMessage" class="form-text"></div>
           </div>
-          <button id="submit" type="submit" class="btn btn-primary d-none">Submit</button>
-        </form>
-      </div>
+          <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password">
+            <div id="PasswordMessage" class="form-text"></div>
+          </div>
+          <div class="progress mb-3 px-0" style="width: 100%">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark progress-bar-1" role="progressbar" style="width: 0%"
+            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+        
+        
+      </form>
+      
+      
     </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  
-  
-  <script>  
-    /* 
-    pseudo code
-    1. seleccione los elementos en el dom
-    2. crear el evento de entrada para interceptar el valor en el campo de entrada 
-    3. interceptado el valor tengo que hacer una función de control
-    4. aplico la utilidad de validación sobre el valor de la entrada 
-    */
-    // 1.seleccione los elementos en el dom
-    let pass = document.querySelector('#passValidation');
-    let confirmPass = document.querySelector('#confirmPassValidation');
+
+  <script>
     
-    let passMessage = document.querySelector('#passMessage');
-    let passConfirmMessage = document.querySelector('#passConfirmMessage');
+    const username = document.querySelector('#Username');
+    const email = document.querySelector('#Email');
+    const password = document.querySelector('#Password');
+    const UserMessage = document.querySelector('#UserMessage');
+    const PasswordMessage = document.querySelector('#PasswordMessage');
+    const EmailMessage = document.querySelector('#EmailMessage');
     
-    let btn = document.querySelector('#submit');
+    let rules = 0;
     
-    //2. crear el evento de entrada para interceptar el valor en el campo de entrada 
-    pass.addEventListener('input', (e) => {
-      e.preventDefault()
-      let valor = pass.value;
-      //4.aplico la utilidad de validación sobre el valor de la entrada
-      if (checkPassValidation(valor)) {
-        // añado clases al control positivo
-        passMessage.classList.remove('text-danger')
-        passMessage.classList.add('text-success')
-        passMessage.innerHTML = "Good Pass! 😳";      
+    username.addEventListener("change", () => {
+      
+      if (checkUsernameValidation(username.value)) {
+        
+        username.classList.remove('is-invalid')
+        username.classList.add('is-valid')
+        UserMessage.textContent = "valido"
+        UserMessage.classList.remove('text-danger')
+        UserMessage.classList.add('text-success')
+        rules += 1
+        progressValidation()
+        
       } else {
-        passMessage.classList.remove('text-success')
-        passMessage.classList.add('text-danger')
-        passMessage.innerHTML = "password must be at least 6 characters and one uppercase 😅";
-      }
-      console.log(checkPassValidation(valor));
-    });
+        username.classList.remove('is-valid')
+        username.classList.add('is-invalid')
+        UserMessage.textContent = "Non valido"
+        UserMessage.classList.remove('text-success')
+        UserMessage.classList.add('text-danger')
+      } 
+      
+      
+    })
     
-    
-    confirmPass.addEventListener('enter', () => {
-      // control si los dos valores son iguales 
-      if (confirmPass.value === pass.value) {
-        passConfirmMessage.classList.remove('text-danger')
-        passConfirmMessage.classList.add('text-success')
-        passConfirmMessage.innerHTML = "Pass confirmed 🤓";
-        btn.classList.remove('d-none');
+    email.addEventListener("change", () => {
+      
+      if (checkEmailValidation(email.value)) {
+        
+        email.classList.remove('is-invalid')
+        email.classList.add('is-valid')
+        EmailMessage.textContent = "valido"
+        EmailMessage.classList.remove('text-danger')
+        EmailMessage.classList.add('text-success')
+        rules += 1
+        progressValidation()
       } else {
-        passConfirmMessage.classList.remove('text-success')
-        passConfirmMessage.classList.add('text-danger')
-        passConfirmMessage.innerHTML = "Came on man, try again! 😂";
+        email.classList.remove('is-valid')
+        email.classList.add('is-invalid')
+        EmailMessage.textContent = "Non valido"
+        EmailMessage.classList.remove('text-success')
+        EmailMessage.classList.add('text-danger')
+      } 
+      
+      
+    })
+    
+    password.addEventListener("change", () => {
+      
+      if (checkPasswordValidation(password.value)) {
+        
+        password.classList.remove('is-invalid')
+        password.classList.add('is-valid')
+        PasswordMessage.textContent = "password valida"
+        PasswordMessage.classList.remove('text-danger')
+        PasswordMessage.classList.add('text-success')
+        rules += 1
+        progressValidation()
+        
+      } else {
+        password.classList.remove('is-valid')
+        password.classList.add('is-invalid')
+        PasswordMessage.textContent = "Deve contenere una maiuscola, una miniscola e un numero"
+        PasswordMessage.classList.remove('text-success')
+        PasswordMessage.classList.add('text-danger')
+      } 
+      
+      
+    })
+    
+    
+    function progressValidation() {
+      let progressValues = [];    
+      progressValues.push(rules)
+      
+      let progressBar = document.querySelector(".progress-bar-1");
+      let progressForm = progressValues.reduce((a, b) => a + b, 0);
+      
+      switch (progressForm) {
+        case 1:
+        progressBar.style.width = "35%";
+        progressBar.textContent = "35%";
+        break;
+        case 2:
+        progressBar.style.width = "65%";
+        progressBar.textContent = "65%";
+        break;
+        case 3:
+        progressBar.style.width = "100%";
+        progressBar.textContent = "100%";
+        break;
+        default:
+        progressBar.style.width = "0%";
+        progressBar.textContent = "0%";
+        break;
       }
-    });
+    }
     
     
-    // 3. interceptado el valor tengo que hacer una función de control
-    function checkPassValidation(str) {
-      // control que contenga un mínimo de 6 caracteres
-      // Comprobación de que no hay caracteres especiales
-      let caratteri = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
-      let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10}$/
-      /* if (str.length > 6 && !str.match(caratteri)) {
+    
+    function checkUsernameValidation(str) {
+      let caratteri = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
+      if (str.length >= 4 && !str.match(caratteri)) {
         return true;
       } else {
         return false;
-      } */
+      }
+    }
+    
+    function checkEmailValidation(str) {
+      let caratteri = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
+      if (str.length >= 4 && !str.match(caratteri)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
+    
+    
+    function checkPasswordValidation(str) {
+      let caratteri = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; 
+      let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10}$/
       if ( str.match(new RegExp(regex, 'gi')) ) {
         return true
       } else {
@@ -102,17 +186,10 @@
       }
     };
     
-    const password = (value, helpers) => {
-      if (value.length < 8) {
-        return helpers.message('password must be at least 8 characters');
-      }
-      if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
-        return helpers.message('password must contain at least 1 letter and 1 number');
-      }
-      return value;
-    };
     
     
   </script>
+  
+  
 </body>
 </html>
