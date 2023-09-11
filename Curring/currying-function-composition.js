@@ -11,4 +11,3 @@ const doubleLengths = map(map(messages, getLength), double)
 console.log(doubleLengths);
 
 
-

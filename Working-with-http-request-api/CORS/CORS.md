@@ -21,4 +21,3 @@
     * in controllo del server devi settare headers per le origin che hanno il permesso di fetchare le risorse  
 * how to fix when you do not have control on server 
     * devi usare un server nel medio, un Proxy server a cui deleghiamo la richiesta 
-    * 

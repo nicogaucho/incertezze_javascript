@@ -1,4 +1,4 @@
-import { giveStyleToData } from '/app.js';
+import { giveStyleToData } from './app.js';
 
 fetch('https://dog.ceo/api/breeds/image/random/3')
 .then((response) => {

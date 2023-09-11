@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container text-white py-3">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <fieldset>
+              <legend>Search Marvel charater</legend>
+              <div class="mb-3">
+                <label for="filter" class="form-label">Search here</label>
+                <input type="text" id="filter" class="form-control p-3" placeholder="character...">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+
+      // TODO 
+      // - [ ] setup boostrap 
+      // - [ ] Implementa la funzione di autoCompleteResults
+      // - [ ] UI con input e posto dove mostrare i risultati ricercati 
+      // - [ ] Tenere traccia del valore filtrato 
+      // - [ ] Quando il filtro cambio, ottenere un nuovo risultato 
+      // - [ ] Mostrare loader di caricamento risultati 
+      // - [ ] mostrare i risultati della ricerca sulla pagina 
+      // - [ ] Se errore, mostrare errore sulla pagina 
+      // - [ ] Pulire i suggerimenti e errore quando cambia il filtro 
+      // - [ ] Fai debouce del valore del campo di input 
+      // - [ ] Aborta / cancella richiesta quando il filtro cambia   
+
+      const inputElement= document.querySelector('#filter'); 
+
+      inputElement.addEventListener('input', (event) => {
+        console.log(event.target.value)
+      })
+
+
+
+    </script>
+
+  </body>
+</html>

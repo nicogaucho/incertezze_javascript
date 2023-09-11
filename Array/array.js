@@ -1,5 +1,3 @@
-
-
 // simplemente array.pop() modifica la estructura del array personas quidado!! uso Array.from para crear una copia del mismo array (funcional programming meaning 😇)
 
 console.log(Array.from(personas).pop()); // mar
@@ -14,9 +12,7 @@ console.log(personas);
 console.log(personas.includes('gracia')); //true
 console.log(personas.includes('chirs')); //false
 
-
 let num = [100, 2, 20, 35, 4, 44]
-
 // functional programming
  // console.log(num.sort()); // [ 100, 2, 20, 35, 4, 44 ]
   .sort((a, b) => a - b)

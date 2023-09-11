@@ -15,8 +15,6 @@ function indexOf(array, value) {
 console.log(indexOf(people, 'jack'));
 
 
-
-
 // sort of explanantion of forEach
 let arr = [2, 22, 44, 20, 21, 50];
 function forEach(array, callback) {

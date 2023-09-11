@@ -11,11 +11,10 @@ const obj = {
     }
 }
 
-obj.fn()
+// obj.fn()
 
 
 // with arrow function, example below => return undefined 
-
 
 const objeto = {
     nombre: 'ng', 
@@ -24,10 +23,30 @@ const objeto = {
     }
 }
 
-const generateFn = objeto.funcion()
+// const generateFn = objeto.funcion()
 
-generateFn()
+// generateFn()
 
 // what's is happening? 
+
+// const user = {
+//     name: 'NG', 
+//     updateName: (name) => {
+//         this.name = name;
+//     }, 
+// }; 
+
+const user = {
+    name: 'NG', 
+    updateName(name){
+        this.name = name;
+    }, 
+}; 
+
+user.updateName('GN')
+
+console.log(user.name);
+
+
 
 

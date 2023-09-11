@@ -65,7 +65,8 @@
             let name = prompt("nombre ordenador");
             let price = prompt("precio ordenador");
             data.push({name: name, price: price});
-            localStorage.setItem('product', JSON.stringify(data));
+            // localStorage.setItem('product', JSON.stringify(data));
+            localStorage.data = JSON.stringify(data); 
         }
 
         
@@ -75,8 +76,9 @@
 
 
         function getData() {
-            let items = localStorage.getItem('product') 
-            let datos = JSON.parse(items);
+            // let items = localStorage.getItem('product') 
+            // let datos = JSON.parse(items);
+            let datos = JSON.parse(localStorage.data); 
             console.log(datos)
             datos.forEach(element => {
                 let list = document.querySelector('#list');
@@ -90,7 +92,6 @@
         function removeData() {
             return localStorage.clear()
         }
-
 
     </script>
 </body>

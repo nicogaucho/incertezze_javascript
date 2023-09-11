@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></head>
+<body>
+
+    <div class="container my-5">
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1>Movie list</h1>
+            </div>
+        </div>
+     
+        <div class="row mb-3">   
+            <div class="col-6">
+                <form>
+                    <div class="mb-3">
+                      <label for="search" class="form-label">Seach for movie</label>
+                      <input type="text" class="form-control" id="search">
+                    </div>
+                    <button type="submit" class="btn btn-info">GO to SEARCH</button>
+                </form>
+            </div>
+        </div>    
+        <div class="row mb-3">
+            <div class="col-12">
+                <button id="favoritesBtn" class="btn btn-info">Check your favorites</button>
+                <button id="resultsBtn" class="btn btn-primary">Check your results</button>
+            </div>
+        </div>    
+    </div>
+    
+    <div class="container my-5">
+        <div id="movieRenderElement" class="row">
+            
+        </div>
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+        
+        // what is Application state 
+        // setup project 
+        // add picocss
+        // create a form in your html 
+        // listen whenev the form is submitted preventing default event 
+        const form = document.querySelector('form');
+        // form.addEventListener('submit', (event) => {
+        //     event.preventDefault();
+        //     console.log('Form was submitted');
+        // });
+        // keep track of what user type on the input field 
+        // select the input from the DOM 
+        const input = document.querySelector('input');
+        const favoritesBtn = document.querySelector('#favoritesBtn');
+        const resultsBtn = document.querySelector('#resultsBtn');
+        const movieRenderElement = document.querySelector('#movieRenderElement');
+        // listen to input event 
+            // input.addEventListener('input', (event) => {
+            //     state.search = event.target.value;
+            // })
+        // define an obj state {}
+        let state = {
+            // word searching 
+            search: '',
+            // results of movies 
+            movies: [],
+            favourites: [],
+            showFavorites: false,
+        };
+
+        // set showFavorite to false 
+        resultsBtn.addEventListener('click', () => {
+            setState({
+                showFavorites: false,
+            })
+        })
+        // set showFavorite to true to look at the favorites 
+        favoritesBtn.addEventListener('click', () => {
+            setState({
+                showFavorites: true,
+            })
+        })
+
+
+            // update search key value whenev user type in 
+                // state.search = event.target.value;
+            // instead of update directly 
+            // create a function setState 
+        function setState(objUpdates) {
+             state = {
+                ...state, // spread op, takes all prev props and put them inside state 
+                ...objUpdates
+            }
+
+            // localStorage.state = JSON.stringify(state)
+
+            // if state changes call this render function
+            renderMovies()
+            console.log(state)
+        }; 
+        // call setState passing the new value on the state obj 
+        input.addEventListener('input', (event) => {
+            setState({
+                search: event.target.value
+            })
+        })
+        // use the input value to search and make api req 
+        async function getMovies(search) {
+            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=eb1a4d76bb33d43d3c95480c836be472&query=${search}`)
+            const json = await response.json();
+            // console.log(json.results)
+            setState({
+                movies: json.results
+            })      
+        }
+        // call movie api
+            // https://api.themoviedb.org/3/movie/550?api_key=eb1a4d76bb33d43d3c95480c836be472
+            //  https://api.themoviedb.org/3/search/movie?api_key=eb1a4d76bb33d43d3c95480c836be472&query=${search}
+        // search for a movie 
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // console.log(state)
+            // call my search api req on form submitted...
+            getMovies(state.search);
+        });
+        
+        // create a function to render the movies, we want to call this render function anytime our state changes 
+        function renderMovies() {
+            let html = ''
+            // decide with array do you want to render based on showFavorites
+            let movies = state.showFavorites ? state.favourites : state.movies
+            // render after favorites implemetation... 
+                movies.forEach((movie) => {
+                html += `
+                     <div class="col-12 col-md-4">
+                        <div class="card">
+                            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${movie.title}</h5>
+                            <p class="card-text">${movie.release_date}</p>
+
+                            
+                            ${state.favourites.find((favMovie) => favMovie.id == movie.id) ? `<a href="#" class="btn btn-danger" onclick='removeFromFavorites(${movie.id})'>Remove favourite</a>` : `<a href="#" class="btn btn-info" onclick='addToFavorites(${JSON.stringify(movie)})'>Go to favourite</a>`}
+                            
+                            </div>
+                        </div>
+                    </div>
+                `
+             })   
+
+            // first and original render before favorite movies implementation... 
+            //  state.movies.forEach((movie) => {
+            //     html += `
+            //          <div class="col-12 col-md-4">
+            //             <div class="card">
+            //                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="...">
+            //                 <div class="card-body">
+            //                 <h5 class="card-title">${movie.title}</h5>
+            //                 <p class="card-text">${movie.release_date}</p>
+
+            //                 /* rendering based on searching fav movies in favorites array in state */
+            //                 ${state.favourites.find((favMovie) => favMovie.id == movie.id) ? `<a href="#" class="btn btn-danger" onclick='removeFromFavorites(${movie.id})'>Remove favourite</a>` : `<a href="#" class="btn btn-info" onclick='addToFavorites(${JSON.stringify(movie)})'>Go to favourite</a>`}
+                            
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     `
+            //  })   
+            movieRenderElement.innerHTML = html
+        }
+
+        // click movie to add into your favorite 
+        function addToFavorites(movie) {
+            // alternative way to get an obj of movie on click...
+            // console.log(state.movies.find((movie) => movie.id === id))
+            setState({
+                favourites: [...state.favourites, movie]
+            })
+        }
+
+        // function to remove from favorites
+        function removeFromFavorites(id) {
+            setState({
+                favourites: state.favourites.filter((movie) => movie.id != id)
+            })
+        }
+
+        // create element to see fav movies 
+            // create html element button to see results and favorites 
+            // on click on results set showFavorites to false and viceversa clicking on favorites btn 
+        
+        // use Localstorage to store results into the browser not in memory... 
+        // check if state is in localstorage
+        // let state = localStorage.state ? JSON.parse(localStorage.state) : {
+        //     search: '',
+        //     movies: [],
+        //     favourites: [],
+        //     showFavorites: false,
+        // };
+        // then in setState function we need to set localStorage.state
+            // localStorage.state = JSON.stringify(state)
+        
+                
+    </script>
+</body>
+</html>

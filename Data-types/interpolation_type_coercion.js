@@ -7,7 +7,6 @@ let b = 'Adrian';
 
 let c = `Hola ${a}, ¿quieres conocer a ${b}?`;
 console.log(c); 
- 
 */
 
 //Type coercion implicit 
@@ -25,10 +24,6 @@ let e = 10;
 
 let f = Number(a) + b;
 console.log(typeof f);
-
-
-
-
 
 // valores booleanos
 //el resultado de la primera operacion devuelve un valor booleano: true = 1, false = 0;

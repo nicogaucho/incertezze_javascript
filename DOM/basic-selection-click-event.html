@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .selected {
+      background: #0f0;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  Click on a list item to select it.
+  <br>
+
+  <ul id="ul">
+    <li>Christopher Robin</li>
+    <li>Winnie-the-Pooh</li>
+    <li>Tigger</li>
+    <li>Kanga</li>
+    <li>Rabbit. Just rabbit.</li>
+  </ul>
+
+  <script>
+    let ul = document.querySelector('#ul'); 
+
+    ul.addEventListener('click', (event) => {
+      if (event.ctrlKey || event.metaKey) {
+        toggleSelect(event.target);
+        // console.log(event.target)
+      } else {
+        singleSelect(event.target);
+        // console.log(event.currentTarget)
+      }
+    })
+
+
+    function toggleSelect(li) {
+      li.classList.toggle('selected');
+    }
+
+    function singleSelect(li) {
+      let selected = ul.querySelectorAll('.selected');
+      selected.forEach(el => {
+        el.classList.remove('selected')
+      })
+      li.classList.add('selected');
+    }
+  </script>
+</body>
+</html>

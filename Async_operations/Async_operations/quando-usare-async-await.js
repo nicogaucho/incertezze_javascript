@@ -1,30 +1,35 @@
-// cuando usar async/await ¿?
+import fs from "fs"; // only in modules
+// const fs = require('fs'); also in .js files 
 
-// cuando algo devuelve una promise! No puede existir una promise sin async/await
-
-const fs = require('fs');
-
-fs.promises.readFile('/Users/nico/wa/incertezze/index.html', 'utf-8')
-  .then((data) => {
-    console.log(data);
+fs.promises.readFile('app.mjs', 'utf-8')
+  .then((file) => {
+    console.log(file)
   })
   .catch((error) => {
-    console.error(error);
-  });   
+    console.error(error)
+  })
 
-// se tu ves file con node.js index.js significa que hemos producido una promises y podemos usar async/await
+// transform this in async await... 
 
-// 1 necesitamos una async function 
-
-// 2 craa await function encapsulando toda la logica del this 
-
-async function readInFile() {
-  try {
-    const data = await fs.promises.readFile('/Users/nico/wa/incertezze/index.html', 'utf-8');
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+// put in async function... also in .js files 
+async function readTheFile() {
+  const data = await fs.promises.readFile('app.mjs', 'utf-8')
+  console.log(data);  
 }
 
-readInFile(); 
+// readTheFile();
+
+// to level await... only in modules
+const data = await fs.promises.readFile('app.mjs', 'utf-8')
+// console.log(data);
+
+
+// to catch error as well, you have to use async function with try catch 
+async function readTheFile() {
+  try {
+    const data = await fs.promises.readFile('app.mjs', 'utf-8')
+    console.log(data);  
+  } catch (error) {
+    console.error(error)    
+  }
+}

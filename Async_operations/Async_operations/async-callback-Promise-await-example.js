@@ -3,7 +3,7 @@
 // JS usege of queue to large operations 
 // JS is a event callback oriented language
 
-setTimeout(() => console.log('hello'), 2000)
+// setTimeout(() => console.log('hello'), 2000)
 
 // ESEMPIO OPERAZIONI ASINCRONE 
 // CARS EXAMPLE di operazione async con setTimeout 
@@ -27,9 +27,9 @@ function insertCar(car) {
 }
 
 
-insertCar({ brand: "MASSERATI", model: "y-200"  })
+// insertCar({ brand: "MASSERATI", model: "y-200"  })
 
-showCars()
+// showCars()
 
 
 // ESEMPIO CON CALLBACK
@@ -49,7 +49,7 @@ function insertCar(car, callback) {
     }, 2000);
 }
 
-insertCar({ brand: "MASSERATI", model: "y-200"  }, showCars) 
+// insertCar({ brand: "MASSERATI", model: "y-200"  }, showCars) 
 
 // ESEMPIO CON PROMISE
 // Possiamo usare la Promise build-in per controllare i processi async e alla risoluzione della promise eseguire il resto della logica 
@@ -72,13 +72,11 @@ function insertCar(car) {
 }
 
 
-insertCar({ brand: "MASSERATI", model: "y-200"  })
-    .then(showCars)
-
+// insertCar({ brand: "MASSERATI", model: "y-200"  })
+//     .then(showCars)
 
 // ESEMPIO CON ASYNC AWAIT
 // ASYNC / AWAIT pero attenzione, si possono regolare le operazioni async con await se quello che sto mettendo in await mi ritorna una promise 
-
 
 function showCars() {
     return new Promise((resolve, reject) => {
@@ -109,4 +107,4 @@ async function get() {
     showCars()
 }
 
-get()
+get(); 

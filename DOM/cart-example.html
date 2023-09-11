@@ -107,7 +107,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script>
-      
+
       // COSE DA FARE: 
       // bottone da cliccare html ✅
       // contenitore laterale da far apparire (HTML) ✅
@@ -124,6 +124,7 @@
       // definire una funzione che... (JS) ✅
       // aggiungere una classe per posizionarlo all'origine, per chiuderlo (JS) ✅
       
+
       const openBtn = document.querySelector('#openBtn');
       const closeBtn = document.querySelector('#closeBtn');
       const sideBar = document.querySelector('.sideBar');
@@ -142,21 +143,21 @@
       const totalCart = document.querySelector('#totalCart');
       
       const product = [
-      {
-        name: "macbook", 
-        price: 1000, 
-        type: "laptop"
-      }, 
-      {
-        name: "acer", 
-        price: 500, 
-        type: "laptop"
-      }, 
-      {
-        name: "hp", 
-        price: 1500, 
-        type: "laptop"
-      }, 
+        {
+          name: "macbook", 
+          price: 1000, 
+          type: "laptop"
+        }, 
+        {
+          name: "acer", 
+          price: 500, 
+          type: "laptop"
+        }, 
+        {
+          name: "hp", 
+          price: 1500, 
+          type: "laptop"
+        }, 
       ];
       
       product.forEach(element => {
@@ -182,10 +183,11 @@
         btn.addEventListener('click', () => {
           let item = product.find((el) => product.indexOf(el) == i);
           data.push(item);
-          // localStorage.setItem('prodotti', JSON.stringify(data));
+          localStorage.setItem('prodotti', JSON.stringify(data));
           // let items = localStorage.getItem('prodotti');
           // let final = JSON.parse(items);
-          showProdInCart(final);
+          // console.log(localStorage)
+          showProdInCart(data);
         })  
       })
       

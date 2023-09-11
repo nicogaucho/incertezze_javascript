@@ -51,3 +51,4 @@ const game = playGame();
 game.getName();
 game.getRules();
 game.addRule('apprentice');
+

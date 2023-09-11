@@ -51,10 +51,28 @@ console.log("la suma de los primeros n numeros es: ", sum); */
 } */
 
 
+
 let r = 1;
 while ( r <= 50 ) {
   console.log( `il cerchio di raggio ${r} ha area ${(Math.PI * r**2).toFixed(2)}`  );
   r += 1; // r++;
+}
+
+// PIN blocca cellulare!! 
+let PIN = prompt('PIN CODE: ')
+let i = 0;
+while (true) {
+  if (i < 3) {
+    if (PIN == "1234") {
+      alert('PIN correct, welcome 👍🏻')
+      break;
+    }
+    PIN = prompt('PIN CODE: ')
+  } else {
+    alert('phone blocked 🚫')
+    break;
+  }
+  i++;
 }
 
 

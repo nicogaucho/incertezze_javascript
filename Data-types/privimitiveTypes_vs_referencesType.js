@@ -50,8 +50,6 @@ disney.name = "pippo"
 
 console.log(animal, disney);
 
-
-
 // hahaha 
 let a = Object.create(Array.prototype, {
   0: {writable: true, configurable: true, enumerable: true, value: 1}, 
